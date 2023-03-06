@@ -11,16 +11,7 @@ import SideMenu
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var window: UIWindow?
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        let window = UIWindow(frame: UIScreen.main.bounds)
-//        let root = HomeVC()
-//        
-//        window.rootViewController = UINavigationController(rootViewController: HomeVC())
-//    rootViewController: MenuController(with: ["Character","Episode","Location"])
-//        window.makeKeyAndVisible()
-//        self.window = window
         return true
     }
 
@@ -55,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 /*
                  Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
+                 * The parent directory does not exist, cannot be created, or disallows writing.a
                  * The persistent store is not accessible, due to permissions or data protection when the device is locked.
                  * The device is out of space.
                  * The store could not be migrated to the current model version.

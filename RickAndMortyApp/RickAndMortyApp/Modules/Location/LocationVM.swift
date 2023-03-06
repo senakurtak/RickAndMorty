@@ -9,17 +9,16 @@ import Moya
 import RxSwift
 import UIKit
 
-class LocationVM : ObservableObject {
- 
-    var locationList = PublishSubject<RMLocationResponse>()
+class LocationVM : BaseVM {
+    
+    var locationList = PublishSubject<[RMLocation]>()
     
     var bag : DisposeBag = DisposeBag()
     
     func fetchLocation(){
         NetworkManager.shared.fetchRickAndMortieLocation().subscribe(onNext: { response in
-            self.locationList.onNext(response)
-            print(self.locationList)
-            print(response)
+            self.locationList.onNext(response.results)
+            print(response.results)
         }, onError: { error in
             print(error.localizedDescription)
         }

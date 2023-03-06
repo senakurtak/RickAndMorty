@@ -23,8 +23,7 @@ class MenuController: UITableViewController {
     init(with menuItems: [String]){
         self.menuItems = menuItems
         super.init(nibName: nil, bundle: nil)
-        tableView.register(UITableViewCell.self
-                           , forCellReuseIdentifier: "cell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     required init?(coder: NSCoder) {
@@ -64,7 +63,6 @@ class MenuController: UITableViewController {
         default:
             break
         }
-        
         dismiss(animated: true, completion: nil)
     }
 }

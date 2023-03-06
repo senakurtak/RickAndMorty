@@ -9,17 +9,16 @@ import Moya
 import RxSwift
 import UIKit
 
-class EpisodeVM : ObservableObject {
+class EpisodeVM : BaseVM{
     
-    var episodeList = PublishSubject<RMEpisodeResponse>()
+    var episodeList = PublishSubject<[RMEpisode]>()
     
     var bag : DisposeBag = DisposeBag()
     
     func fetchEpisode(){
         NetworkManager.shared.fetchRickAndMortieEpisode().subscribe(onNext: { response in
-            self.episodeList.onNext(response)
-            print(self.episodeList)
-            print(response)
+            self.episodeList.onNext(response.results)
+            print(response.results)
         }, onError: { error in
             print(error.localizedDescription)
         }

@@ -7,15 +7,14 @@
 
 import UIKit
 
-class EpisodeVC: UIViewController {
+class EpisodeVC: BaseVC<EpisodeVM> {
 
     @IBOutlet weak var tableView: UITableView!
-    
-    var viewModel = EpisodeVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "CustomTVC", bundle: nil), forCellReuseIdentifier: "CustomTVC")
-        viewModel.fetchEpisode()
+        viewModel?.fetchEpisode()
+        title = "Episode"
     }
 }

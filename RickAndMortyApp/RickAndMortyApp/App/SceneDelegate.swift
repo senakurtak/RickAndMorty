@@ -6,19 +6,22 @@
 //
 
 import UIKit
+import RxSwift
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var appCoordinator: AppCoordinator!
+    private let disposeBag = DisposeBag()
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let window = UIWindow(windowScene: windowScene)
-//        window.rootViewController = UINavigationController(rootViewController: TabBarController())
-//        window.makeKeyAndVisible()
-//        
-//        self.window = window
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        window?.overrideUserInterfaceStyle = .light
+        appCoordinator = AppCoordinator(window: self.window!)
+        appCoordinator.start().subscribe().disposed(by: disposeBag)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
