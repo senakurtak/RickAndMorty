@@ -8,11 +8,8 @@ GET https://rickandmortyapi.com/api
 
 
 ## Features of the application
-- Resource Request
-- Data Storage
-- Fetching and listing datas using GET request after login to the site using POST request 
+- Fetching and listing datas using GET request 
 - Searching datas 
-- Scanning QR codes
 - Refreshing datas
   
 ## Used technologies
