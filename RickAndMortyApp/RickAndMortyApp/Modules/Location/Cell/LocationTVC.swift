@@ -1,13 +1,13 @@
 //
-//  EpisodeTVC.swift
+//  LocationTVC.swift
 //  RickAndMortyApp
 //
-//  Created by Sena Kurtak on 1.03.2023.
+//  Created by Sena Kurtak on 6.03.2023.
 //
 
 import UIKit
 
-class EpisodeTVC: UITableViewCell {
+class LocationTVC: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

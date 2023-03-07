@@ -12,11 +12,10 @@ import RxSwift
 class MenuController: UITableViewController {
     
     private let menuItems : [String]
-    private let color = UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 33/255.0)
     
     override func viewDidLoad() {
-        tableView.backgroundColor = color
-        view.backgroundColor = color
+        tableView.backgroundColor = .orgDarkGray
+        view.backgroundColor = .orgDarkGray
         
     }
     
@@ -38,8 +37,8 @@ class MenuController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = menuItems[indexPath.row]
         cell.textLabel?.textColor = .white
-        cell.backgroundColor = color
-        cell.contentView.backgroundColor = color
+        cell.backgroundColor = .orgDarkGray
+        cell.contentView.backgroundColor = .orgDarkGray
         return cell
     }
     
@@ -50,7 +49,7 @@ class MenuController: UITableViewController {
         
         switch selectedItem {
         case "Character":
-            let characterVC = CharacterVC()
+            let characterVC = CharacterListVC()
             navigationController?.pushViewController(characterVC, animated: true)
         case "Episode":
             let episodeVC = EpisodeVC()

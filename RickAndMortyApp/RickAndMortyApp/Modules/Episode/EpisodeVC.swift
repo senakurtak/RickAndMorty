@@ -13,7 +13,8 @@ class EpisodeVC: BaseVC<EpisodeVM> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UINib(nibName: "CustomTVC", bundle: nil), forCellReuseIdentifier: "CustomTVC")
+        
+        tableView.register(UINib(nibName: "EpisodeTVC", bundle: nil), forCellReuseIdentifier: "EpisodeTVC")
         viewModel?.fetchEpisode()
         title = "Episode"
     }

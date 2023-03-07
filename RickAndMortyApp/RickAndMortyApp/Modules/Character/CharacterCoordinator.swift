@@ -21,7 +21,7 @@ class CharacterCoordinator: ReactiveCoordinator<Void>{
     }
     
     override func start() -> Observable<Void> {
-        let vc = CharacterVC()
+        let vc = CharacterListVC()
         let vm = CharacterVM()
         vc.viewModel = vm
         navigationController.setViewControllers([vc], animated: true)

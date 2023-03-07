@@ -10,10 +10,10 @@ import RxSwift
 import SideMenu
 class BaseVC<T>: UIViewController where T : BaseVM {
     
+    
     var viewModel : T?
     let disposeBag = DisposeBag()
     let screen = UIScreen.main.bounds
-//    private let color = UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 33/255.0)
     
     private let sideMenu = SideMenuNavigationController(rootViewController: MenuController(with: ["Production","Ratings","Analysis"]))
     
@@ -23,6 +23,7 @@ class BaseVC<T>: UIViewController where T : BaseVM {
         self.setUpView()
         self.setUpConstraints()
     }
+    
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return UIStatusBarStyle.lightContent
@@ -34,8 +35,10 @@ class BaseVC<T>: UIViewController where T : BaseVM {
     func setUpView() {
         navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = .white
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(buttonClickedForMenuView))
+//        self.navigationController?.navigationBar.tintColor = .white
+        view.backgroundColor = .black
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"), style: .plain, target: self, action: #selector(buttonClickedForMenuView))
+        navigationItem.rightBarButtonItem?.tintColor = .white
     }
     
     func setUpConstraints() {

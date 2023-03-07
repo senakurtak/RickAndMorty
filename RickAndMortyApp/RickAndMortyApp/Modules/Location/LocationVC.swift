@@ -14,7 +14,7 @@ class LocationVC: BaseVC<LocationVM> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UINib(nibName: "CustomTVC", bundle: nil), forCellReuseIdentifier: "CustomCell")
+        tableView.register(UINib(nibName: "LocationTVC", bundle: nil), forCellReuseIdentifier: "LocationTVC")
         viewModel?.fetchLocation()
         title = "Locations"
     }

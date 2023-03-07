@@ -14,7 +14,7 @@ class CharacterVC: BaseVC<CharacterVM> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UINib(nibName: "CustomTVC", bundle: nil), forCellReuseIdentifier: "CustomCell")
+        tableView.register(UINib(nibName: "CharacterTVC", bundle: nil), forCellReuseIdentifier: "CharacterTVC")
         viewModel?.fetchCharacter()
         title = "Characters"
     }
