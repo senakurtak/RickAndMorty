@@ -27,9 +27,16 @@ final class CharacterListView: UIView {
         collectionView.alpha = 0
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(CharacterCVC.self, forCellWithReuseIdentifier: CharacterCVC.cellIdentifier)
-        collectionView.backgroundColor = .gray
+        collectionView.backgroundColor = .pewter
         return collectionView
     }()
+    
+    var characterArray : [RMCharacter] = [] {
+        didSet{
+            self.collectionView.reloadData()
+        }
+    }
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)

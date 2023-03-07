@@ -11,6 +11,8 @@ final class CharacterListVC: BaseVC<CharacterVM>  {
 
     private let characterListView = CharacterListView()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.fetchCharacter()
