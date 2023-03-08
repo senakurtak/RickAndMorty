@@ -6,19 +6,27 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 final class CharacterCVC: UICollectionViewCell {
     
     static let cellIdentifier = "CharacterCollectionViewCell"
     
-    private let imageView : UIImageView = {
+//    var imageViewText : String?
+//    var nameLabelText : String?
+//    var statusLabelText : String?
+    
+    public var imageView : UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
+//        guard let urlString = imageViewText else { return ""}
+//        imageView.sd_setImage(with: URL(string: urlString))
         return imageView
     }()
     
-    private let nameLabel : UILabel = {
+    public var nameLabel : UILabel = {
         let label = UILabel()
         label.textColor = .label
         label.font = .systemFont(ofSize: 18, weight: .medium)
@@ -27,7 +35,7 @@ final class CharacterCVC: UICollectionViewCell {
     }()
     
     
-    private let statusLabel : UILabel = {
+    public var statusLabel : UILabel = {
         let label = UILabel()
         label.textColor = .secondaryLabel
         label.font = .systemFont(ofSize: 16, weight: .medium)
@@ -49,8 +57,8 @@ final class CharacterCVC: UICollectionViewCell {
     private func addConstraint() {
         
         NSLayoutConstraint.activate([
-            statusLabel.heightAnchor.constraint(equalToConstant: 50),
-            nameLabel.heightAnchor.constraint(equalToConstant: 50),
+            statusLabel.heightAnchor.constraint(equalToConstant: 30),
+            nameLabel.heightAnchor.constraint(equalToConstant: 30),
             statusLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
             statusLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -5),
             nameLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
@@ -58,21 +66,21 @@ final class CharacterCVC: UICollectionViewCell {
             
             statusLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -3),
             nameLabel.bottomAnchor.constraint(equalTo: statusLabel.topAnchor, constant: -3),
-
+            
             
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             imageView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             imageView.bottomAnchor.constraint(equalTo: nameLabel.topAnchor, constant: -3),
             
-
+            
         ])
         
         imageView.backgroundColor = .charcoal
         nameLabel.backgroundColor = .charcoal
         statusLabel.backgroundColor = .charcoal
     }
-
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil
@@ -83,5 +91,17 @@ final class CharacterCVC: UICollectionViewCell {
     public func configure(with viewModel: CharacterCVCVM){
         nameLabel.text = viewModel.characterName
         statusLabel.text = viewModel.characterStatusText
+        viewModel.fetchImage { [weak self] result in
+            switch result{
+            case .success(let data):
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+                    self?.imageView.image = image
+                }
+            case .failure(let error):
+                print(String(describing: error))
+                break
+            }
+        }
     }
 }

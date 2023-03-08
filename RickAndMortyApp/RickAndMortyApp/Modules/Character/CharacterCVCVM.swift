@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 // Character CollectionView ViewModel
 
 final class CharacterCVCVM {
@@ -28,4 +29,20 @@ final class CharacterCVCVM {
         return characterStatus.rawValue
     }
     
+    func fetchImage(completion: @escaping (Result<Data,Error>) -> Void){
+        // Image manager
+        guard let url = characterImageUrl else {
+            completion(.failure(URLError(.badURL)))
+            return
+        }
+        let request = URLRequest(url: url)
+        let task = URLSession.shared.dataTask(with: request) { data, _, error in
+            guard let data = data, error == nil else {
+                completion(.failure(error ?? URLError(.badServerResponse)))
+                return
+            }
+            completion(.success(data))
+        }
+        task.resume()
+    }
 }

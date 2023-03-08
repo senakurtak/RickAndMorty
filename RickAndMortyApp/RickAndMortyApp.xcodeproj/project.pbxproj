@@ -45,6 +45,8 @@
 		B36959B729AF7A4C0076185A /* EpisodeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B36959B529AF7A4C0076185A /* EpisodeVC.xib */; };
 		B379CC3029B6344400DECAF5 /* CharacterCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B379CC2F29B6344400DECAF5 /* CharacterCVC.swift */; };
 		B379CC3229B76EB100DECAF5 /* CharacterCVCVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B379CC3129B76EB100DECAF5 /* CharacterCVCVM.swift */; };
+		B379CC3629B7FD7000DECAF5 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B379CC3529B7FD7000DECAF5 /* SDWebImage */; };
+		B379CC3829B80A6900DECAF5 /* DeviceSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B379CC3729B80A6900DECAF5 /* DeviceSize.swift */; };
 		B394772529AF8B4400EB0048 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B394772429AF8B4400EB0048 /* MenuController.swift */; };
 		B39FFC5229B54F6A00398AF2 /* EpisodeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FFC5129B54F6A00398AF2 /* EpisodeVM.swift */; };
 		B39FFC5429B5524500398AF2 /* CharacterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FFC5329B5524500398AF2 /* CharacterVM.swift */; };
@@ -121,6 +123,7 @@
 		B36959B529AF7A4C0076185A /* EpisodeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeVC.xib; sourceTree = "<group>"; };
 		B379CC2F29B6344400DECAF5 /* CharacterCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCVC.swift; sourceTree = "<group>"; };
 		B379CC3129B76EB100DECAF5 /* CharacterCVCVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCVCVM.swift; sourceTree = "<group>"; };
+		B379CC3729B80A6900DECAF5 /* DeviceSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSize.swift; sourceTree = "<group>"; };
 		B394772429AF8B4400EB0048 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		B39FFC5129B54F6A00398AF2 /* EpisodeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeVM.swift; sourceTree = "<group>"; };
 		B39FFC5329B5524500398AF2 /* CharacterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterVM.swift; sourceTree = "<group>"; };
@@ -151,6 +154,7 @@
 				B353353229AF75C500BE1D4E /* Moya in Frameworks */,
 				B342D2C729B5643F004AC8C1 /* RxSwift in Frameworks */,
 				B353353629AF75C500BE1D4E /* RxMoya in Frameworks */,
+				B379CC3629B7FD7000DECAF5 /* SDWebImage in Frameworks */,
 				B353353929AF76B900BE1D4E /* SideMenu in Frameworks */,
 				B342D2BF29B5643F004AC8C1 /* RxCocoa in Frameworks */,
 				B353353429AF75C500BE1D4E /* ReactiveMoya in Frameworks */,
@@ -375,6 +379,7 @@
 			children = (
 				B3ECC64529B5FD0C00E3663A /* UIColor+Additions.swift */,
 				B3ECC66329B629B800E3663A /* Extensions.swift */,
+				B379CC3729B80A6900DECAF5 /* DeviceSize.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -411,6 +416,7 @@
 				B353353829AF76B900BE1D4E /* SideMenu */,
 				B342D2BE29B5643F004AC8C1 /* RxCocoa */,
 				B342D2C629B5643F004AC8C1 /* RxSwift */,
+				B379CC3529B7FD7000DECAF5 /* SDWebImage */,
 			);
 			productName = RickAndMortyApp;
 			productReference = B35334E429AF754A00BE1D4E /* RickAndMortyApp.app */;
@@ -488,6 +494,7 @@
 				B353352E29AF75C500BE1D4E /* XCRemoteSwiftPackageReference "Moya" */,
 				B353353729AF76B900BE1D4E /* XCRemoteSwiftPackageReference "SideMenu" */,
 				B342D2B929B5643F004AC8C1 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				B379CC3429B7FD7000DECAF5 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = B35334E529AF754A00BE1D4E /* Products */;
 			projectDirPath = "";
@@ -557,6 +564,7 @@
 				B379CC3029B6344400DECAF5 /* CharacterCVC.swift in Sources */,
 				B353352929AF758500BE1D4E /* RMLocation.swift in Sources */,
 				B342D2B329B5620F004AC8C1 /* SplashVC.swift in Sources */,
+				B379CC3829B80A6900DECAF5 /* DeviceSize.swift in Sources */,
 				B39FFC5429B5524500398AF2 /* CharacterVM.swift in Sources */,
 				B36959B629AF7A4C0076185A /* EpisodeVC.swift in Sources */,
 				B3D2734D29B554E100A735C1 /* RMCharacterResponse.swift in Sources */,
@@ -926,6 +934,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		B379CC3429B7FD7000DECAF5 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -958,6 +974,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B353353729AF76B900BE1D4E /* XCRemoteSwiftPackageReference "SideMenu" */;
 			productName = SideMenu;
+		};
+		B379CC3529B7FD7000DECAF5 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B379CC3429B7FD7000DECAF5 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 

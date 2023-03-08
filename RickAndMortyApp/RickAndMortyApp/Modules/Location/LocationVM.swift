@@ -18,7 +18,7 @@ class LocationVM : BaseVM {
     func fetchLocation(){
         NetworkManager.shared.fetchRickAndMortieLocation().subscribe(onNext: { response in
             self.locationList.onNext(response.results)
-            print(response.results)
+//            print(response.results)
         }, onError: { error in
             print(error.localizedDescription)
         }

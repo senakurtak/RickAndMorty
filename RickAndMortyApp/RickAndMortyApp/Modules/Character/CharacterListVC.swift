@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class CharacterListVC: BaseVC<CharacterVM>  {
-
+    
     private let characterListView = CharacterListView()
     
+    var bag = DisposeBag()
     
     
     override func viewDidLoad() {
@@ -24,7 +27,12 @@ final class CharacterListVC: BaseVC<CharacterVM>  {
             characterListView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             characterListView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             characterListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-
+            
         ])
+        
     }
+    
+    var viewModelChr = CharacterVM()
+    
+    
 }

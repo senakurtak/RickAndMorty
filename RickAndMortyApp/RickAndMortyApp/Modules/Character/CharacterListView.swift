@@ -6,10 +6,16 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import Foundation
 
 final class CharacterListView: UIView {
     
     private let viewModel = CharacterVM()
+    
+    var bag = DisposeBag()
+    
     
     private let spinner : UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
@@ -18,7 +24,7 @@ final class CharacterListView: UIView {
         return spinner
     }()
     
-    private let collectionView : UICollectionView = {
+    public let collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.sectionInset =  UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
@@ -29,14 +35,9 @@ final class CharacterListView: UIView {
         collectionView.register(CharacterCVC.self, forCellWithReuseIdentifier: CharacterCVC.cellIdentifier)
         collectionView.backgroundColor = .pewter
         return collectionView
+
     }()
     
-    var characterArray : [RMCharacter] = [] {
-        didSet{
-            self.collectionView.reloadData()
-        }
-    }
-
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,12 +46,42 @@ final class CharacterListView: UIView {
         addConstraints()
         spinner.startAnimating()
         viewModel.fetchCharacter()
-        setUpCollectionView()
+//        setUpCollectionView()
+        collectionDataBinding()
+        setUpCollectionViewConstraint()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("unsupported")
+        fatalError("init(coder:) has not been implemented")
     }
+    
+    func collectionDataBinding(){
+        self.collectionView.register(CharacterCVC.self, forCellWithReuseIdentifier: CharacterCVC.cellIdentifier)
+        viewModel.characterList.bind(to: collectionView.rx.items(cellIdentifier: CharacterCVC.cellIdentifier, cellType: CharacterCVC.self)) { (row, chr, cell) in
+            var viewModel = CharacterCVCVM(characterName: chr.name ?? "", characterStatus: chr.status, characterImageUrl: URL(string: chr.image ?? ""))
+            print("Karakter ismi:\(chr.name)")
+            cell.configure(with: viewModel)
+        }
+        .disposed(by: bag)
+    }
+    
+    
+    private func setUpCollectionViewConstraint(){
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        getDeviceSize()
+        layout.itemSize = CGSize(width: screenWidth * 0.45, height: screenHeight * 0.30)
+        collectionView.setCollectionViewLayout(layout, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
+            self.spinner.stopAnimating()
+            self.collectionView.isHidden = false
+            UIView.animate(withDuration: 0.4) {
+                self.collectionView.alpha = 1
+            }
+        })
+    }
+
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
@@ -66,16 +97,16 @@ final class CharacterListView: UIView {
         ])
     }
     
-    private func setUpCollectionView(){
-        collectionView.dataSource = viewModel
-        collectionView.delegate = viewModel
-        DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
-            self.spinner.stopAnimating()
-            self.collectionView.isHidden = false
-            UIView.animate(withDuration: 0.4) {
-                self.collectionView.alpha = 1
-            }
-        })
-        
-    }
+//    private func setUpCollectionView(){
+//        //        collectionView.dataSource = viewModel
+//        //        collectionView.delegate = viewModel
+//        DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
+//            self.spinner.stopAnimating()
+//            self.collectionView.isHidden = false
+//            UIView.animate(withDuration: 0.4) {
+//                self.collectionView.alpha = 1
+//            }
+//        })
+//
+//    }
 }
