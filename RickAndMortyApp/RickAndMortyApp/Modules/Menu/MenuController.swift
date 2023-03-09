@@ -56,7 +56,7 @@ class MenuController: UITableViewController {
             navigationController?.pushViewController(episodeVC, animated: true)
             break
         case "Location":
-            let locationVC = LocationVC()
+            let locationVC = LocationListVC()
             navigationController?.pushViewController(locationVC, animated: true)
             break
         default:

@@ -15,11 +15,10 @@ final class CharacterListVC: BaseVC<CharacterVM>  {
     
     var bag = DisposeBag()
     
-    
+//
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.fetchCharacter()
-        view.backgroundColor = .black
         title = "Character"
         view.addSubview(characterListView)
         NSLayoutConstraint.activate([
@@ -32,7 +31,7 @@ final class CharacterListVC: BaseVC<CharacterVM>  {
         
     }
     
-    var viewModelChr = CharacterVM()
+    
     
     
 }

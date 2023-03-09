@@ -8,6 +8,7 @@
 import Moya
 import RxSwift
 import UIKit
+import Moya
 
 class LocationVM : BaseVM {
     

@@ -20,7 +20,7 @@ class LocationCoordinator: ReactiveCoordinator<Void>{
     }
     
     override func start() -> Observable<Void> {
-        let vc = LocationVC()
+        let vc = LocationListVC()
         let vm = LocationVM()
         vc.viewModel = vm
         navigationController.setViewControllers([vc], animated: true)
