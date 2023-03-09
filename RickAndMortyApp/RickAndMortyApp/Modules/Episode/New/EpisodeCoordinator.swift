@@ -21,7 +21,7 @@ class EpisodeCoordinator: ReactiveCoordinator<Void>{
     }
     
     override func start() -> Observable<Void> {
-        let vc = EpisodeVC()
+        let vc = EpisodeListVC()
         let vm = EpisodeVM()
         vc.viewModel = vm
         navigationController.setViewControllers([vc], animated: true)

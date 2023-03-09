@@ -9,7 +9,7 @@ import Moya
 import RxSwift
 import UIKit
 
-class EpisodeVM : BaseVM{
+class EpisodeVM : BaseVM {
     
     var episodeList = PublishSubject<[RMEpisode]>()
     

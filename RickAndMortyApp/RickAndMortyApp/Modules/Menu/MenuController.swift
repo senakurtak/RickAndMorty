@@ -52,7 +52,7 @@ class MenuController: UITableViewController {
             let characterVC = CharacterListVC()
             navigationController?.pushViewController(characterVC, animated: true)
         case "Episode":
-            let episodeVC = EpisodeVC()
+            let episodeVC = EpisodeListVC()
             navigationController?.pushViewController(episodeVC, animated: true)
             break
         case "Location":

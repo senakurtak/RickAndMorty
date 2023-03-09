@@ -19,7 +19,7 @@ final class LocationListVC: BaseVC<LocationVM> {
         super.viewDidLoad()
         viewModel?.fetchLocation()
         view.addSubview(locationListView)
-        
+        title = "Location"
         NSLayoutConstraint.activate([
             locationListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             locationListView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
