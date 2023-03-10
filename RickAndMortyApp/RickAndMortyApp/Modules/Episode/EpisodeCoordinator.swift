@@ -24,7 +24,23 @@ class EpisodeCoordinator: ReactiveCoordinator<Void>{
         let vc = EpisodeListVC()
         let vm = EpisodeVM()
         vc.viewModel = vm
-        navigationController.setViewControllers([vc], animated: true)
+        
+        vm.goToDetail.subscribe(onNext: { model in
+            self.goToDetail(model: model)
+        }).disposed(by: disposeBag)
+                
+//      self.navigationController.setNavigationBarHidden(false, animated: true)
+        self.navigationController.setViewControllers([vc], animated: true)
+        
+        
         return Observable.never()
     }
+    
+    private func goToDetail(model: [RMEpisode]) -> Observable<Void> {
+        let coordinator = EpisodeDetailCoordinator(rootViewController: self.rootViewController, episodeItems: model)
+        return coordinate(to: coordinator)
+    }
+    
 }
+
+

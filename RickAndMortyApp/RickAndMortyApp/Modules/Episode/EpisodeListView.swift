@@ -14,7 +14,9 @@ final class EpisodeListView: UIView {
     
     private let viewModel = EpisodeVM()
     
-    var bag = DisposeBag()
+    let detailViewModel = EpisodeDetailVM()
+    
+    var disposeBag = DisposeBag()
     
     private let spinner : UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
@@ -43,25 +45,14 @@ final class EpisodeListView: UIView {
         addConstraints()
         spinner.startAnimating()
         viewModel.fetchEpisode()
-        collectionDataBinding()
+//        collectionDataBinding()
         setUpCollectionViewConstraint()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func collectionDataBinding(){
-        self.collectionView.register(EpisodeCVC.self,
-                                     forCellWithReuseIdentifier: EpisodeCVC.cellIdentifier)
-        viewModel.episodeList.bind(to: collectionView.rx.items(cellIdentifier: EpisodeCVC.cellIdentifier, cellType: EpisodeCVC.self)) { (row, eps, cell) in
-            var viewModel = EpisodeCVCVM(episodeName: eps.name ?? "", episodeAirDateLabel: eps.air_date ?? "", episodeLabel: eps.episode ?? "")
-            print("Episode isimleri:\(eps.name)")
-            cell.configure(with: viewModel)
-        }
-        .disposed(by: bag)
-    }
-    
+        
     private func addConstraints() {
         NSLayoutConstraint.activate([
             spinner.widthAnchor.constraint(equalToConstant: 100),
