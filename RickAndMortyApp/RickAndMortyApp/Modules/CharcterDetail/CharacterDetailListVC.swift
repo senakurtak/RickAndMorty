@@ -1,8 +1,8 @@
 //
-//  EpisodeDetailListVC.swift
+//  CharacterDetailListVC.swift
 //  RickAndMortyApp
 //
-//  Created by Sena Kurtak on 9.03.2023.
+//  Created by Sena Kurtak on 12.03.2023.
 //
 
 import Foundation
@@ -10,11 +10,11 @@ import RxCocoa
 import RxSwift
 import UIKit
 
-class EpisodeDetailListVC: BaseVC<EpisodeDetailVM>{
+class CharacterDetailListVC: BaseVC<CharacterDetailVM>{
     
-    private let episodeDetailListView = EpisodeDetailListView()
+    private let characterDetailListView = CharacterDetailListView()
     
-    var episodeItems : [RMEpisode] = []
+    var characters : [RMCharacter] = []
     let customNavBar = CustomNavigationBar()
     //    var detailID : Int
     
@@ -29,8 +29,8 @@ class EpisodeDetailListVC: BaseVC<EpisodeDetailVM>{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .cyan
-        print(episodeItems)
+        view.backgroundColor = .green
+        print(characters)
         view.addSubviews(customNavBar)
         customNavBar.backButton.addTarget(self, action: #selector(didTapBackButton), for: .touchUpInside)
     }

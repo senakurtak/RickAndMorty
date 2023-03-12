@@ -14,6 +14,7 @@ class LocationCoordinator: ReactiveCoordinator<Void>{
     private let rootViewController: UIViewController
     private let navigationController : UINavigationController
     
+ 
     init(rootViewController: UIViewController, navigationController: UINavigationController) {
         self.rootViewController = rootViewController
         self.navigationController = navigationController
@@ -23,7 +24,19 @@ class LocationCoordinator: ReactiveCoordinator<Void>{
         let vc = LocationListVC()
         let vm = LocationVM()
         vc.viewModel = vm
+        
+        vm.goToDetailLocation.subscribe(onNext: { location in
+            self.goToDetailLocation(location: location)
+            
+        }).disposed(by: disposeBag)
+        
         navigationController.setViewControllers([vc], animated: true)
         return Observable.never()
+    }
+    
+    
+    private func goToDetailLocation(location: [RMLocation]) -> Observable<Void> {
+        let coordinator = LocationDetailCoordinator(rootViewController: self.rootViewController, locations: location)
+        return coordinate(to: coordinator)
     }
 }

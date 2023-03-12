@@ -15,23 +15,45 @@ final class CharacterListVC: BaseVC<CharacterVM>  {
     
     var bag = DisposeBag()
     
-//
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.fetchCharacter()
         title = "Character"
         view.addSubview(characterListView)
+        collectionDataBinding()
         NSLayoutConstraint.activate([
             characterListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             characterListView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             characterListView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             characterListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-            
         ])
-        
     }
     
     
-    
+    func collectionDataBinding(){
+        characterListView.collectionView.register(CharacterCVC.self,
+                                                  forCellWithReuseIdentifier: CharacterCVC.cellIdentifier)
+       
+        
+        self.characterListView.collectionView.rx.setDelegate(self).disposed(by: disposeBag)
+        viewModel!.characterList.bind(to: characterListView.collectionView.rx.items(cellIdentifier: CharacterCVC.cellIdentifier, cellType: CharacterCVC.self)) { (row, chr, cell) in
+            var viewModel = CharacterCVCVM(characterName: chr.name ?? "", characterStatus: chr.status, characterImageUrl: URL(string: chr.image ?? ""))
+            print("Karakter ismi:\(chr.name)")
+            cell.configure(with: viewModel)
+        }
+        .disposed(by: bag)
+        
+        //MARK: character did select
+        Observable
+            .zip(characterListView.collectionView.rx.itemSelected, characterListView.collectionView.rx.modelSelected(RMCharacter.self))
+            .bind { indexPath, character in
+                print("Character is: \(character.name)")
+                self.viewModel?.goToDetailCharacter.onNext([character])
+//                self.viewModel?.goToDetailWithID.onNext(("\(model.id)"))
+            } .disposed(by: disposeBag)
+    }
+}
+
+extension CharacterListVC : UICollectionViewDelegate {
     
 }

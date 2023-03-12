@@ -1,23 +1,21 @@
 //
-//  EpisodeDetailListVC.swift
+//  LocationDetailListVC.swift
 //  RickAndMortyApp
 //
-//  Created by Sena Kurtak on 9.03.2023.
+//  Created by Sena Kurtak on 12.03.2023.
 //
-
+import UIKit
 import Foundation
 import RxCocoa
 import RxSwift
-import UIKit
 
-class EpisodeDetailListVC: BaseVC<EpisodeDetailVM>{
+class LocationDetailVC: BaseVC<LocationDetailVM>{
     
-    private let episodeDetailListView = EpisodeDetailListView()
+    private var locationDetailListView = LocationDetailListView()
     
-    var episodeItems : [RMEpisode] = []
+    var locations : [RMLocation] = []
     let customNavBar = CustomNavigationBar()
-    //    var detailID : Int
-    
+
     public var idLabel : UILabel = {
         let label = UILabel()
         label.textColor = .label
@@ -25,12 +23,12 @@ class EpisodeDetailListVC: BaseVC<EpisodeDetailVM>{
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .cyan
-        print(episodeItems)
+        view.backgroundColor = .red
+        print(locations)
         view.addSubviews(customNavBar)
         customNavBar.backButton.addTarget(self, action: #selector(didTapBackButton), for: .touchUpInside)
     }

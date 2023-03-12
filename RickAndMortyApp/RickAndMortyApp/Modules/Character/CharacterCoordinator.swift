@@ -24,7 +24,17 @@ class CharacterCoordinator: ReactiveCoordinator<Void>{
         let vc = CharacterListVC()
         let vm = CharacterVM()
         vc.viewModel = vm
-        navigationController.setViewControllers([vc], animated: true)
+        
+        vm.goToDetailCharacter.subscribe(onNext: { character in
+            self.goToDetailCharacter(character: character)
+        }).disposed(by: disposeBag)
+        self.navigationController.setViewControllers([vc], animated: true)
         return Observable.never()
     }
+    
+    private func goToDetailCharacter(character: [RMCharacter]) -> Observable<Void> {
+        let coordinator = CharacterDetailCoordinator(rootViewController: self.rootViewController, characters: character)
+        return coordinate(to: coordinator)
+    }
+
 }

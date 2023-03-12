@@ -17,6 +17,7 @@ class EpisodeVM : BaseVM {
     
     var goToDetail = PublishSubject<[RMEpisode]>()
     
+//    var goToDetailWithID = PublishSubject<String>()
     
     func fetchEpisode(){
         NetworkManager.shared.fetchRickAndMortieEpisode().subscribe(onNext: { response in

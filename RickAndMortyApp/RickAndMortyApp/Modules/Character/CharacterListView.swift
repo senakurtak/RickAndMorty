@@ -16,6 +16,7 @@ final class CharacterListView: UIView {
     
     var bag = DisposeBag()
     
+    let detailViewModel = CharacterDetailVM()
     
     private let spinner : UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
@@ -35,7 +36,6 @@ final class CharacterListView: UIView {
         collectionView.register(CharacterCVC.self, forCellWithReuseIdentifier: CharacterCVC.cellIdentifier)
         collectionView.backgroundColor = .pewter
         return collectionView
-
     }()
     
     
@@ -46,25 +46,12 @@ final class CharacterListView: UIView {
         addConstraints()
         spinner.startAnimating()
         viewModel.fetchCharacter()
-//        setUpCollectionView()
-        collectionDataBinding()
         setUpCollectionViewConstraint()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func collectionDataBinding(){
-        self.collectionView.register(CharacterCVC.self, forCellWithReuseIdentifier: CharacterCVC.cellIdentifier)
-        viewModel.characterList.bind(to: collectionView.rx.items(cellIdentifier: CharacterCVC.cellIdentifier, cellType: CharacterCVC.self)) { (row, chr, cell) in
-            var viewModel = CharacterCVCVM(characterName: chr.name ?? "", characterStatus: chr.status, characterImageUrl: URL(string: chr.image ?? ""))
-            print("Karakter ismi:\(chr.name)")
-            cell.configure(with: viewModel)
-        }
-        .disposed(by: bag)
-    }
-    
     
     private func setUpCollectionViewConstraint(){
         let layout = UICollectionViewFlowLayout()

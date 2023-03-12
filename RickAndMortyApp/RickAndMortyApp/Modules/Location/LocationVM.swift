@@ -16,6 +16,8 @@ class LocationVM : BaseVM {
     
     var bag : DisposeBag = DisposeBag()
     
+    var goToDetailLocation = PublishSubject<[RMLocation]>()
+    
     func fetchLocation(){
         NetworkManager.shared.fetchRickAndMortieLocation().subscribe(onNext: { response in
             self.locationList.onNext(response.results)

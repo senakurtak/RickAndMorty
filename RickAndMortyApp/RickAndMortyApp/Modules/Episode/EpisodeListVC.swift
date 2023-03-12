@@ -32,6 +32,8 @@ class EpisodeListVC: BaseVC<EpisodeVM> {
     func collectionDataBinding(){
         episodeListView.collectionView.register(EpisodeCVC.self,
                                                 forCellWithReuseIdentifier: EpisodeCVC.cellIdentifier)
+        
+        
         self.episodeListView.collectionView.rx.setDelegate(self).disposed(by: disposeBag)
         viewModel!.episodeList.bind(to: episodeListView.collectionView.rx.items(cellIdentifier: EpisodeCVC.cellIdentifier, cellType: EpisodeCVC.self)) { (row, eps, cell) in
             var viewModel = EpisodeCVCVM(episodeName: eps.name ?? "", episodeAirDateLabel: eps.air_date ?? "", episodeLabel: eps.episode ?? "")
@@ -45,8 +47,11 @@ class EpisodeListVC: BaseVC<EpisodeVM> {
             .zip(episodeListView.collectionView.rx.itemSelected, episodeListView.collectionView.rx.modelSelected(RMEpisode.self))
             .bind { indexPath, model in
                 print("Episode is: \(model.episode)")
-                                self.viewModel?.goToDetail.onNext([model])
+                self.viewModel?.goToDetail.onNext([model])
+//                self.viewModel?.goToDetailWithID.onNext(("\(model.id)"))
             } .disposed(by: disposeBag)
+        
+        
     }
 }
 

@@ -7,7 +7,6 @@
 import Moya
 import RxSwift
 import UIKit
-import RxCocoa
 
 final class CharacterVM : BaseVM {
     
@@ -15,6 +14,8 @@ final class CharacterVM : BaseVM {
     
     var bag : DisposeBag = DisposeBag()
     
+    var goToDetailCharacter = PublishSubject<[RMCharacter]>()
+
     func fetchCharacter(){
         NetworkManager.shared.fetchRickAndMortieCharacter().subscribe(onNext: { response in
             self.characterList.onNext(response.results)
@@ -24,6 +25,6 @@ final class CharacterVM : BaseVM {
         }
         ).disposed(by: bag)
     }
-    
+
 }
 

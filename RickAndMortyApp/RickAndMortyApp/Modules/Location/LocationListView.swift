@@ -43,24 +43,12 @@ final class LocationListView: UIView {
         addConstraints()
         spinner.startAnimating()
         viewModel.fetchLocation()
-        collectionDataBinding()
         setUpCollectionViewConstraint()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func collectionDataBinding(){
-        self.collectionView.register(LocationCVC.self, forCellWithReuseIdentifier: LocationCVC.cellIdentifier)
-        viewModel.locationList.bind(to: collectionView.rx.items(cellIdentifier: LocationCVC.cellIdentifier, cellType: LocationCVC.self)) { (row, loc, cell) in
-            var viewModel = LocationCVCVM(locationName: loc.name ?? "", locationType: loc.type ?? "")
-            print("Lokasyon ismi:\(loc.name)")
-            cell.configure(with: viewModel)
-        }
-        .disposed(by: bag)
-    }
-    
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
