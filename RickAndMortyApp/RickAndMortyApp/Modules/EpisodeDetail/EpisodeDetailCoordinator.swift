@@ -16,12 +16,10 @@ class EpisodeDetailCoordinator: ReactiveCoordinator<Void>{
     private let rootViewController: UIViewController
     
     var episodeItems : [RMEpisode]
-//    let detailId : Int
     
     init(rootViewController: UIViewController, episodeItems: [RMEpisode]) {
         self.rootViewController = rootViewController
         self.episodeItems = episodeItems
-//        self.detailId = detailId
     }
     
     override func start() -> Observable<Void> {
@@ -29,7 +27,6 @@ class EpisodeDetailCoordinator: ReactiveCoordinator<Void>{
         let vm = EpisodeDetailVM()
         vc.viewModel = vm
         vc.episodeItems = self.episodeItems
-//        vc.detailID = self.detailId
         self.rootViewController.navigationController?.pushViewController(vc, animated: true)
         return Observable.never()
     }

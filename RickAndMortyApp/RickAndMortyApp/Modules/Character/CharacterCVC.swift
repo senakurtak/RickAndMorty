@@ -12,17 +12,11 @@ import RxSwift
 final class CharacterCVC: UICollectionViewCell {
     
     static let cellIdentifier = "CharacterCollectionViewCell"
-    
-//    var imageViewText : String?
-//    var nameLabelText : String?
-//    var statusLabelText : String?
-    
+        
     public var imageView : UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
-//        guard let urlString = imageViewText else { return ""}
-//        imageView.sd_setImage(with: URL(string: urlString))
         return imageView
     }()
     

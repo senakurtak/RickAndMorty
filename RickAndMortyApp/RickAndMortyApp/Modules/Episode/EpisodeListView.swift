@@ -45,7 +45,6 @@ final class EpisodeListView: UIView {
         addConstraints()
         spinner.startAnimating()
         viewModel.fetchEpisode()
-//        collectionDataBinding()
         setUpCollectionViewConstraint()
     }
     

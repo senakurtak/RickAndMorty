@@ -48,7 +48,6 @@ class EpisodeListVC: BaseVC<EpisodeVM> {
             .bind { indexPath, model in
                 print("Episode is: \(model.episode)")
                 self.viewModel?.goToDetail.onNext([model])
-//                self.viewModel?.goToDetailWithID.onNext(("\(model.id)"))
             } .disposed(by: disposeBag)
         
         

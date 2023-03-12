@@ -12,8 +12,6 @@ import UIKit
 
 class CharacterDetailListVC: BaseVC<CharacterDetailVM>{
     
-    private let characterDetailListView = CharacterDetailListView()
-    
     var characters : [RMCharacter]?
     
     let customNavBar = CustomNavigationBar()
@@ -32,10 +30,50 @@ class CharacterDetailListVC: BaseVC<CharacterDetailVM>{
     var detailedChrCreated: String?
     
     
-    public var idLabel : UILabel = {
+    public var chrNameLabel : UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.font = .systemFont(ofSize: 36, weight: .medium)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    public var chrStatusLabel : UILabel = {
+        let label = UILabel()
+        label.textColor = .label
+        label.font = .systemFont(ofSize: 20, weight: .medium)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    public var chrSpecies : UILabel = {
+        let label = UILabel()
+        label.textColor = .label
+        label.font = .systemFont(ofSize: 20, weight: .medium)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    public var chrGender : UILabel = {
+        let label = UILabel()
+        label.textColor = .label
+        label.font = .systemFont(ofSize: 20, weight: .medium)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    public var chrOrigin : UILabel = {
+        let label = UILabel()
+        label.textColor = .label
+        label.font = .systemFont(ofSize: 20, weight: .medium)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    public var chrLocation : UILabel = {
+        let label = UILabel()
+        label.textColor = .label
+        label.font = .systemFont(ofSize: 20, weight: .medium)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -43,8 +81,7 @@ class CharacterDetailListVC: BaseVC<CharacterDetailVM>{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
-        print(characters)
+        view.backgroundColor = .pewter
         if let character = characters?.first{
             detailedChrId = character.id
             detailedChrName = character.name
@@ -59,10 +96,31 @@ class CharacterDetailListVC: BaseVC<CharacterDetailVM>{
             detailedChrUrl = character.url
             detailedChrCreated = character.created
         }
-        print("Selected Character Details are: \(detailedChrId),\(detailedChrName),\(detailedChrStatus),\(detailedChrSpecies),\(detailedChrType),\(detailedChrGender),\(detailedChrOrigin),\(detailedChrLocation),\(detailedChrImage),\(detailedChrEpisode),\(detailedChrUrl),\(detailedChrCreated)")
-        
-        view.addSubviews(customNavBar)
+        view.addSubview(customNavBar)
+        chrNameLabelSetUp()
+        chrStatusLabelSetUp()
         customNavBar.backButton.addTarget(self, action: #selector(didTapBackButton), for: .touchUpInside)
+    }
+    
+    func chrNameLabelSetUp(){
+        view.addSubview(chrNameLabel)
+        chrNameLabel.text = detailedChrName
+        chrNameLabel.textAlignment = .center
+        chrNameLabel.adjustsFontSizeToFitWidth = true
+        chrNameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100).isActive = true
+        chrNameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        chrNameLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+    }
+    
+    func chrStatusLabelSetUp(){
+        view.addSubview(chrStatusLabel)
+        chrNameLabel.text = detailedChrStatus?.rawValue
+        chrNameLabel.textAlignment = .left
+        chrNameLabel.adjustsFontSizeToFitWidth = true
+        chrNameLabel.topAnchor.constraint(equalTo: chrNameLabel.bottomAnchor, constant: 50).isActive = true
+        chrNameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        chrNameLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+        chrNameLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
     }
     
     override func viewDidLayoutSubviews() {

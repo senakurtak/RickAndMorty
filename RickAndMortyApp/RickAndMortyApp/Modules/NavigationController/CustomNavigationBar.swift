@@ -17,13 +17,9 @@ class CustomNavigationBar: UIView {
         
         // Configure back button
         backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        backButton.tintColor = .black
+        backButton.tintColor = .lightGray
         addSubview(backButton)
         
-//        // Configure title label
-//        titleLabel.text = "Custom Navigation Bar"
-//        titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
-//        addSubview(titleLabel)
     }
     
     required init?(coder: NSCoder) {

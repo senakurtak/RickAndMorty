@@ -16,9 +16,7 @@ class EpisodeVM : BaseVM {
     var bag : DisposeBag = DisposeBag()
     
     var goToDetail = PublishSubject<[RMEpisode]>()
-    
-//    var goToDetailWithID = PublishSubject<String>()
-    
+        
     func fetchEpisode(){
         NetworkManager.shared.fetchRickAndMortieEpisode().subscribe(onNext: { response in
             self.episodeList.onNext(response.results)

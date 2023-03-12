@@ -15,12 +15,10 @@ class CharacterDetailCoordinator: ReactiveCoordinator<Void>{
     private let rootViewController: UIViewController
     
     var characters : [RMCharacter]
-//    let detailId : Int
     
     init(rootViewController: UIViewController, characters: [RMCharacter]) {
         self.rootViewController = rootViewController
         self.characters = characters
-//        self.detailId = detailId
     }
     
     override func start() -> Observable<Void> {
@@ -28,7 +26,6 @@ class CharacterDetailCoordinator: ReactiveCoordinator<Void>{
         let vm = CharacterDetailVM()
         vc.viewModel = vm
         vc.characters = self.characters
-//        vc.detailID = self.detailId
         self.rootViewController.navigationController?.pushViewController(vc, animated: true)
         return Observable.never()
     }
