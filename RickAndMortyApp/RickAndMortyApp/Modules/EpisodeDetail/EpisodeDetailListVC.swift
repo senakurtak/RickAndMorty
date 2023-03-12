@@ -14,9 +14,16 @@ class EpisodeDetailListVC: BaseVC<EpisodeDetailVM>{
     
     private let episodeDetailListView = EpisodeDetailListView()
     
-    var episodeItems : [RMEpisode] = []
+    var episodeItems : [RMEpisode]?
     let customNavBar = CustomNavigationBar()
-    //    var detailID : Int
+    var detailedEpsId: Int?
+    var detailedEpsName: String?
+    var detailedEpsAir_date: String?
+    var detailedEpsEpisode: String?
+    var detailedEpsCharacters: [String] = [""]
+    var detailedEpsUrl: String?
+    var detailedEpsCreated: String?
+    
     
     public var idLabel : UILabel = {
         let label = UILabel()
@@ -30,7 +37,17 @@ class EpisodeDetailListVC: BaseVC<EpisodeDetailVM>{
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .cyan
-        print(episodeItems)
+        if let episode = episodeItems?.first{
+//            title = episode.name
+            detailedEpsId = episode.id
+            detailedEpsName = episode.name
+            detailedEpsAir_date = episode.air_date
+            detailedEpsEpisode = episode.episode
+            detailedEpsCharacters = episode.characters
+            detailedEpsUrl = episode.url
+            detailedEpsCreated = episode.created
+        }
+        print("Selected Episode Details are \(detailedEpsId),\(detailedEpsName),\(detailedEpsAir_date),\(detailedEpsEpisode),\(detailedEpsCharacters) ,\(detailedEpsUrl),\(detailedEpsCreated),")
         view.addSubviews(customNavBar)
         customNavBar.backButton.addTarget(self, action: #selector(didTapBackButton), for: .touchUpInside)
     }

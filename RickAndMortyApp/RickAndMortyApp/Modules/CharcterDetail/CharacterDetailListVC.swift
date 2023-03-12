@@ -14,9 +14,23 @@ class CharacterDetailListVC: BaseVC<CharacterDetailVM>{
     
     private let characterDetailListView = CharacterDetailListView()
     
-    var characters : [RMCharacter] = []
+    var characters : [RMCharacter]?
+    
     let customNavBar = CustomNavigationBar()
-    //    var detailID : Int
+    
+    var detailedChrId: Int?
+    var detailedChrName: String?
+    var detailedChrStatus: RMCharacterStatus?
+    var detailedChrSpecies: String?
+    var detailedChrType: String?
+    var detailedChrGender: String?
+    var detailedChrOrigin: RMOrigin?
+    var detailedChrLocation: RMSingleLocation?
+    var detailedChrImage: String?
+    var detailedChrEpisode: [String] = [""]
+    var detailedChrUrl: String?
+    var detailedChrCreated: String?
+    
     
     public var idLabel : UILabel = {
         let label = UILabel()
@@ -31,6 +45,22 @@ class CharacterDetailListVC: BaseVC<CharacterDetailVM>{
         super.viewDidLoad()
         view.backgroundColor = .green
         print(characters)
+        if let character = characters?.first{
+            detailedChrId = character.id
+            detailedChrName = character.name
+            detailedChrStatus = character.status
+            detailedChrSpecies = character.species
+            detailedChrType = character.type
+            detailedChrGender = character.gender
+            detailedChrOrigin = character.origin
+            detailedChrLocation = character.location
+            detailedChrImage = character.image
+            detailedChrEpisode = character.episode
+            detailedChrUrl = character.url
+            detailedChrCreated = character.created
+        }
+        print("Selected Character Details are: \(detailedChrId),\(detailedChrName),\(detailedChrStatus),\(detailedChrSpecies),\(detailedChrType),\(detailedChrGender),\(detailedChrOrigin),\(detailedChrLocation),\(detailedChrImage),\(detailedChrEpisode),\(detailedChrUrl),\(detailedChrCreated)")
+        
         view.addSubviews(customNavBar)
         customNavBar.backButton.addTarget(self, action: #selector(didTapBackButton), for: .touchUpInside)
     }
