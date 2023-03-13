@@ -70,7 +70,7 @@ class EpisodeDetailListVC: BaseVC<EpisodeDetailVM>{
         episodeNameLabelSetUp()
         episodeAirDateLabelSetUp()
         episodeEpisodeLabelSetUp()
-        episodeCharactersFiveLabelSetUp()
+//        episodeCharactersFiveLabelSetUp()
         customNavBar.backButton.addTarget(self, action: #selector(didTapBackButton), for: .touchUpInside)
     }
 
@@ -104,16 +104,16 @@ class EpisodeDetailListVC: BaseVC<EpisodeDetailVM>{
         episodeEpisodeLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
     }
     
-    func episodeCharactersFiveLabelSetUp(){
-        view.addSubview(episodeCharactersFiveLabel)
-        var eps = detailedEpsEpisode!
-        episodeCharactersFiveLabel.text = "Top 5 Character in \(eps)"
-        episodeCharactersFiveLabel.textAlignment = .left
-        episodeCharactersFiveLabel.adjustsFontSizeToFitWidth = true
-        episodeCharactersFiveLabel.topAnchor.constraint(equalTo: episodeEpisodeLabel.bottomAnchor, constant: 30).isActive = true
-        episodeCharactersFiveLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        episodeCharactersFiveLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-    }
+//    func episodeCharactersFiveLabelSetUp(){
+//        view.addSubview(episodeCharactersFiveLabel)
+//        var eps = detailedEpsEpisode!
+//        episodeCharactersFiveLabel.text = "Top 5 Character in \(eps)"
+//        episodeCharactersFiveLabel.textAlignment = .left
+//        episodeCharactersFiveLabel.adjustsFontSizeToFitWidth = true
+//        episodeCharactersFiveLabel.topAnchor.constraint(equalTo: episodeEpisodeLabel.bottomAnchor, constant: 30).isActive = true
+//        episodeCharactersFiveLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+//        episodeCharactersFiveLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+//    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

@@ -44,20 +44,14 @@ class MenuController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         let selectedItem = menuItems[indexPath.item]
-        
         switch selectedItem {
-        case "Character":
-            let characterVC = CharacterListVC()
-            navigationController?.pushViewController(characterVC, animated: true)
-        case "Episode":
-            let episodeVC = EpisodeListVC()
-            navigationController?.pushViewController(episodeVC, animated: true)
+        case "Production":
+        case "Ratings":
+            var ratingVC = RatingWebViewController()
+            navigationController?.pushViewController(ratingVC, animated: true)
             break
-        case "Location":
-            let locationVC = LocationListVC()
-            navigationController?.pushViewController(locationVC, animated: true)
+        case "Analysis":
             break
         default:
             break
@@ -65,5 +59,3 @@ class MenuController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
 }
-
-
