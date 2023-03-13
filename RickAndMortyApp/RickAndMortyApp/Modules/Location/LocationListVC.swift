@@ -14,7 +14,6 @@ final class LocationListVC: BaseVC<LocationVM> {
     private let locationListView = LocationListView()
 
     var bag = DisposeBag()
-//    var locations : [RMLocation]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,16 +33,14 @@ final class LocationListVC: BaseVC<LocationVM> {
         self.locationListView.collectionView.register(LocationCVC.self, forCellWithReuseIdentifier: LocationCVC.cellIdentifier)
         viewModel!.locationList.bind(to: locationListView.collectionView.rx.items(cellIdentifier: LocationCVC.cellIdentifier, cellType: LocationCVC.self)) { (row, loc, cell) in
             var viewModel = LocationCVCVM(locationName: loc.name ?? "", locationType: loc.type ?? "")
-            print("Lokasyon ismi:\(loc.name)")
             cell.configure(with: viewModel)
         }
         .disposed(by: bag)
         
-        //MARK: Location did select
+        //MARK: DidSelect on Location
         Observable
             .zip(locationListView.collectionView.rx.itemSelected, locationListView.collectionView.rx.modelSelected(RMLocation.self))
             .bind { indexPath, location in
-                print("Location is: \(location.name)")
                 self.viewModel?.goToDetailLocation.onNext([location])
             } .disposed(by: disposeBag)
     }

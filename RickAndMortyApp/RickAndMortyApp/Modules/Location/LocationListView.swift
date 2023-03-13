@@ -33,7 +33,6 @@ final class LocationListView: UIView {
         collectionView.register(LocationCVC.self, forCellWithReuseIdentifier: LocationCVC.cellIdentifier)
         collectionView.backgroundColor = .pewter
         return collectionView
-        
     }()
     
     override init(frame: CGRect) {

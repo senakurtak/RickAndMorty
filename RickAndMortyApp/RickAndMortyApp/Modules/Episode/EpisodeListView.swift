@@ -13,9 +13,7 @@ import Foundation
 final class EpisodeListView: UIView {
     
     private let viewModel = EpisodeVM()
-    
     let detailViewModel = EpisodeDetailVM()
-    
     var disposeBag = DisposeBag()
     
     private let spinner : UIActivityIndicatorView = {

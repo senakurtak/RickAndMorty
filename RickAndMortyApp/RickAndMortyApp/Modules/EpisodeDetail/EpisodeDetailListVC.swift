@@ -22,8 +22,6 @@ class EpisodeDetailListVC: BaseVC<EpisodeDetailVM>{
     var detailedEpsUrl: String?
     var detailedEpsCreated: String?
     
-    let stackView = UIStackView()
-    
     public var episodeNameLabel : UILabel = {
         let label = UILabel()
         label.textColor = .label
@@ -116,24 +114,7 @@ class EpisodeDetailListVC: BaseVC<EpisodeDetailVM>{
         episodeCharactersFiveLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         episodeCharactersFiveLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
     }
-
-    func stackViewSetUp(){
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.topAnchor.constraint(equalTo: episodeCharactersFiveLabel.bottomAnchor, constant: 20).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30).isActive = true
-    }
     
-    func addButtonsToStackView(){
-                
-        for i in 0...4{
-            let button = SurveyButton()
-            button.setTitle("\(String(describing: episodeItems![i].name))", for: .normal)
-            stackView.addArrangedSubview(button)
-        }
-    }
-
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         // Layout custom navigation bar

@@ -19,7 +19,7 @@ final class CharacterVM : BaseVM {
     func fetchCharacter(){
         NetworkManager.shared.fetchRickAndMortieCharacter().subscribe(onNext: { response in
             self.characterList.onNext(response.results)
-            print(response.results)
+//            print(response.results)
         }, onError: { error in
             print(error.localizedDescription)
         }

@@ -14,12 +14,10 @@ class CustomNavigationBar: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        // Configure back button
+
         backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        backButton.tintColor = .lightGray
+        backButton.tintColor = .darkGray
         addSubview(backButton)
-        
     }
     
     required init?(coder: NSCoder) {
@@ -31,8 +29,7 @@ class CustomNavigationBar: UIView {
         
         // Layout subviews
         let backButtonSize = CGSize(width: 44, height: 44)
-        backButton.frame = CGRect(origin: CGPoint(x: 16, y: (bounds.height - backButtonSize.height) / 2), size: backButtonSize)
-        
+        backButton.frame = CGRect(origin: CGPoint(x: 10, y: (bounds.height - backButtonSize.height) / 8), size: backButtonSize)
         titleLabel.sizeToFit()
         titleLabel.center = CGPoint(x: bounds.midX, y: bounds.midY)
     }

@@ -18,7 +18,6 @@
 		B342D2D129B56481004AC8C1 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B342D2D029B56481004AC8C1 /* AppCoordinator.swift */; };
 		B342D2D329B5656D004AC8C1 /* MenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B342D2D229B5656D004AC8C1 /* MenuCoordinator.swift */; };
 		B342D2D929B5C8A0004AC8C1 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B342D2D729B5C8A0004AC8C1 /* TabBar.swift */; };
-		B342D2DA29B5C8A0004AC8C1 /* TabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = B342D2D829B5C8A0004AC8C1 /* TabBar.xib */; };
 		B35334E829AF754A00BE1D4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35334E729AF754A00BE1D4E /* AppDelegate.swift */; };
 		B35334EA29AF754A00BE1D4E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35334E929AF754A00BE1D4E /* SceneDelegate.swift */; };
 		B35334F229AF754A00BE1D4E /* RickAndMortyApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B35334F029AF754A00BE1D4E /* RickAndMortyApp.xcdatamodeld */; };
@@ -108,7 +107,6 @@
 		B342D2D029B56481004AC8C1 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B342D2D229B5656D004AC8C1 /* MenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCoordinator.swift; sourceTree = "<group>"; };
 		B342D2D729B5C8A0004AC8C1 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		B342D2D829B5C8A0004AC8C1 /* TabBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBar.xib; sourceTree = "<group>"; };
 		B35334E429AF754A00BE1D4E /* RickAndMortyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B35334E729AF754A00BE1D4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B35334E929AF754A00BE1D4E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -250,7 +248,6 @@
 			children = (
 				B3ECC63B29B5D0A400E3663A /* TabBarCoordinator.swift */,
 				B342D2D729B5C8A0004AC8C1 /* TabBar.swift */,
-				B342D2D829B5C8A0004AC8C1 /* TabBar.xib */,
 				B3ECC63D29B5D15C00E3663A /* TabBarKind.swift */,
 			);
 			path = TabBar;
@@ -333,12 +330,12 @@
 				B3CE336C29BB7BE0007C6837 /* NavigationController */,
 				B342D2AC29B561E1004AC8C1 /* Splash */,
 				B342D2D629B5C88A004AC8C1 /* TabBar */,
-				B394773E29AF96E100EB0048 /* Episode */,
-				B3938B8429BA06020070DBFD /* EpisodeDetail */,
 				B394773D29AF96D000EB0048 /* Character */,
 				B3938B8029BA05A00070DBFD /* CharcterDetail */,
 				B394773C29AF96C500EB0048 /* Location */,
 				B3938B8329BA05E80070DBFD /* LocationDetail */,
+				B394773E29AF96E100EB0048 /* Episode */,
+				B3938B8429BA06020070DBFD /* EpisodeDetail */,
 				B342D2AB29B561BC004AC8C1 /* Menu */,
 			);
 			path = Modules;
@@ -573,7 +570,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B35334F429AF754B00BE1D4E /* Assets.xcassets in Resources */,
-				B342D2DA29B5C8A0004AC8C1 /* TabBar.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

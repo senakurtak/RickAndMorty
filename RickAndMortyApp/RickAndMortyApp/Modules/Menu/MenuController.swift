@@ -38,7 +38,7 @@ class MenuController: UITableViewController {
         cell.textLabel?.text = menuItems[indexPath.row]
         cell.textLabel?.textColor = .white
         cell.backgroundColor = .orgDarkGray
-        cell.contentView.backgroundColor = .orgDarkGray
+        cell.contentView.backgroundColor = .pewter
         return cell
     }
     

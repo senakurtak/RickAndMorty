@@ -25,7 +25,7 @@ class CharacterDetailCoordinator: ReactiveCoordinator<Void>{
         let vc = CharacterDetailListVC()
         let vm = CharacterDetailVM()
         vc.viewModel = vm
-        vc.characters = self.characters
+        vc.characterItems = self.characters
         self.rootViewController.navigationController?.pushViewController(vc, animated: true)
         return Observable.never()
     }

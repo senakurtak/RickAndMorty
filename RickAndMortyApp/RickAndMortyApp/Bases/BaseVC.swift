@@ -36,7 +36,7 @@ class BaseVC<T>: UIViewController where T : BaseVM {
         navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
 //        self.navigationController?.navigationBar.tintColor = .white
-        view.backgroundColor = .black
+        view.backgroundColor = .pewter
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"), style: .plain, target: self, action: #selector(buttonClickedForMenuView))
         navigationItem.rightBarButtonItem?.tintColor = .white
     }

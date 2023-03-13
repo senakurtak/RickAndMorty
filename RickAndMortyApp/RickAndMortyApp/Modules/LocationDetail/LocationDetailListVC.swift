@@ -12,9 +12,7 @@ import RxSwift
 class LocationDetailVC: BaseVC<LocationDetailVM>{
         
     var locations : [RMLocation]?
-    
     let customNavBar = CustomNavigationBar()
-
     var detailedLocationId: Int?
     var detailedLocationName: String?
     var detailedLocationType: String?
@@ -23,7 +21,6 @@ class LocationDetailVC: BaseVC<LocationDetailVM>{
     var detailedLocationUrl: String?
     var detailedLocationCreated: String?
 
-    
     public var locationNameLabel : UILabel = {
         let label = UILabel()
         label.textColor = .label
@@ -47,13 +44,10 @@ class LocationDetailVC: BaseVC<LocationDetailVM>{
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .pewter
-        print(locations)
-        
+        view.backgroundColor = .pewter        
         if let location = locations?.first{
             detailedLocationId = location.id
             detailedLocationName = location.name
@@ -99,7 +93,6 @@ class LocationDetailVC: BaseVC<LocationDetailVM>{
         locationDimensionLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         locationDimensionLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
     }
-
     
     
     override func viewDidLayoutSubviews() {
@@ -108,7 +101,6 @@ class LocationDetailVC: BaseVC<LocationDetailVM>{
         let customNavBarSize = CGSize(width: view.bounds.width, height: 88)
         customNavBar.frame = CGRect(origin: CGPoint(x: 0, y: view.safeAreaInsets.top), size: customNavBarSize)
     }
-    
     
     @objc private func didTapBackButton() {
         navigationController?.popViewController(animated: true)

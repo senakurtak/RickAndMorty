@@ -38,7 +38,6 @@ final class CharacterListVC: BaseVC<CharacterVM>  {
         self.characterListView.collectionView.rx.setDelegate(self).disposed(by: disposeBag)
         viewModel!.characterList.bind(to: characterListView.collectionView.rx.items(cellIdentifier: CharacterCVC.cellIdentifier, cellType: CharacterCVC.self)) { (row, chr, cell) in
             var viewModel = CharacterCVCVM(characterName: chr.name ?? "", characterStatus: chr.status, characterImageUrl: URL(string: chr.image ?? ""))
-            print("Karakter ismi:\(chr.name)")
             cell.configure(with: viewModel)
         }
         .disposed(by: bag)
@@ -47,9 +46,7 @@ final class CharacterListVC: BaseVC<CharacterVM>  {
         Observable
             .zip(characterListView.collectionView.rx.itemSelected, characterListView.collectionView.rx.modelSelected(RMCharacter.self))
             .bind { indexPath, character in
-                print("Character is: \(character.name)")
                 self.viewModel?.goToDetailCharacter.onNext([character])
-//                self.viewModel?.goToDetailWithID.onNext(("\(model.id)"))
             } .disposed(by: disposeBag)
     }
 }

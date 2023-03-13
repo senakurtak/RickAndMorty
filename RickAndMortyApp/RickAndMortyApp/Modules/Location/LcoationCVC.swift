@@ -29,7 +29,7 @@ class LocationCVC: UICollectionViewCell {
     
     override init(frame: CGRect){
         super.init(frame: frame)
-        contentView.backgroundColor = .darkSlateGray
+        contentView.backgroundColor = .pewterLight
         contentView.addSubviews(nameLabel, typeLabel)
         addConstraintLocation()
     }
@@ -40,7 +40,6 @@ class LocationCVC: UICollectionViewCell {
     
     private func addConstraintLocation(){
         NSLayoutConstraint.activate([
-            
             nameLabel.heightAnchor.constraint(equalToConstant: 20),
             typeLabel.heightAnchor.constraint(equalToConstant: 20),
             typeLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
@@ -49,12 +48,10 @@ class LocationCVC: UICollectionViewCell {
             nameLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -5),
             typeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             nameLabel.topAnchor.constraint(equalTo: typeLabel.bottomAnchor, constant: 20),
-//            typeLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -3),
-//            nameLabel.bottomAnchor.constraint(equalTo: typeLabel.topAnchor, constant: -3),
         ])
         
-        typeLabel.backgroundColor = .charcoal
-        nameLabel.backgroundColor = .charcoal
+        typeLabel.backgroundColor = .pewter
+        nameLabel.backgroundColor = .pewter
         
     }
     override func prepareForReuse(){
@@ -67,6 +64,4 @@ class LocationCVC: UICollectionViewCell {
         nameLabel.text = viewModel.locationName
         typeLabel.text = viewModel.locationType
     }
-    
-    
 }

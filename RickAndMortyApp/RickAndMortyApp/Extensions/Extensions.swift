@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 extension UIView {
     func addSubviews(_ views: UIView...) {
@@ -13,5 +14,6 @@ extension UIView {
             addSubview($0)
         })
     }
+
 }
 

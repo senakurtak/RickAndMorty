@@ -13,9 +13,9 @@ class TabBar: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.async {
-            self.tabBar.backgroundColor = .orgDarkGray
+            self.tabBar.backgroundColor = .pewter
         }
-        self.tabBar.tintColor = UIColor.white
+        self.tabBar.tintColor = UIColor.black
     }
 }
 

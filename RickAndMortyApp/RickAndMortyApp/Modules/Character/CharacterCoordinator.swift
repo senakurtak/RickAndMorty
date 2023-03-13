@@ -24,7 +24,6 @@ class CharacterCoordinator: ReactiveCoordinator<Void>{
         let vc = CharacterListVC()
         let vm = CharacterVM()
         vc.viewModel = vm
-        
         vm.goToDetailCharacter.subscribe(onNext: { character in
             self.goToDetailCharacter(character: character)
         }).disposed(by: disposeBag)

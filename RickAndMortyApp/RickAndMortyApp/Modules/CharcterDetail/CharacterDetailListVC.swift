@@ -12,10 +12,8 @@ import UIKit
 
 class CharacterDetailListVC: BaseVC<CharacterDetailVM>{
     
-    var characters : [RMCharacter]?
-    
+    var characterItems : [RMCharacter]?
     let customNavBar = CustomNavigationBar()
-    
     var detailedChrId: Int?
     var detailedChrName: String?
     var detailedChrStatus: RMCharacterStatus?
@@ -28,7 +26,15 @@ class CharacterDetailListVC: BaseVC<CharacterDetailVM>{
     var detailedChrEpisode: [String] = [""]
     var detailedChrUrl: String?
     var detailedChrCreated: String?
+    var detailViewModel = CharacterDetailVM()
     
+    public var stackView : UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .leading
+        stackView.spacing = 10
+        return stackView
+    }()
     
     public var chrNameLabel : UILabel = {
         let label = UILabel()
@@ -70,6 +76,13 @@ class CharacterDetailListVC: BaseVC<CharacterDetailVM>{
         return label
     }()
     
+    public var chrImageView : UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     public var chrLocation : UILabel = {
         let label = UILabel()
         label.textColor = .label
@@ -78,11 +91,10 @@ class CharacterDetailListVC: BaseVC<CharacterDetailVM>{
         return label
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .pewter
-        if let character = characters?.first{
+        if let character = characterItems?.first{
             detailedChrId = character.id
             detailedChrName = character.name
             detailedChrStatus = character.status
@@ -99,33 +111,79 @@ class CharacterDetailListVC: BaseVC<CharacterDetailVM>{
         view.addSubview(customNavBar)
         chrNameLabelSetUp()
         chrStatusLabelSetUp()
+        chrGenderLabelSetUp()
+        chrOriginLabelSetUp()
+        chrLocationLabelSetUp()
+        imageSetUp()
         customNavBar.backButton.addTarget(self, action: #selector(didTapBackButton), for: .touchUpInside)
+        view.addSubview(stackView)
+        stackView.addArrangedSubview(chrImageView)
+        stackView.addArrangedSubview(chrNameLabel)
+        stackView.addArrangedSubview(chrGender)
+        stackView.addArrangedSubview(chrSpecies)
+        stackView.addArrangedSubview(chrOrigin)
+        stackView.addArrangedSubview(chrLocation)
+        stackView.addArrangedSubview(chrStatusLabel)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20)
+        ])
+
     }
     
+    func imageSetUp(){
+        view.addSubview(chrImageView)
+        detailViewModel.fetchImage(characterImageUrl: URL(string: detailedChrImage ?? "https://rickandmortyapi.com/api/character/avatar/1.jpeg")) { [weak self] result in
+            switch result{
+            case .success(let data):
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+                    self?.chrImageView.image = image
+                }
+            case .failure(let error):
+                print(String(describing: error))
+                break
+            }
+        }
+        chrImageView.translatesAutoresizingMaskIntoConstraints = false
+        chrImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+
+    }
     func chrNameLabelSetUp(){
         view.addSubview(chrNameLabel)
         chrNameLabel.text = detailedChrName
         chrNameLabel.textAlignment = .center
         chrNameLabel.adjustsFontSizeToFitWidth = true
-        chrNameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100).isActive = true
-        chrNameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        chrNameLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
     }
-    
     func chrStatusLabelSetUp(){
         view.addSubview(chrStatusLabel)
-        chrNameLabel.text = detailedChrStatus?.rawValue
-        chrNameLabel.textAlignment = .left
-        chrNameLabel.adjustsFontSizeToFitWidth = true
-        chrNameLabel.topAnchor.constraint(equalTo: chrNameLabel.bottomAnchor, constant: 50).isActive = true
-        chrNameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        chrNameLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        chrNameLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+        chrStatusLabel.text = detailedChrStatus?.rawValue
+        chrStatusLabel.textAlignment = .left
+        chrStatusLabel.adjustsFontSizeToFitWidth = true
+    }
+    func chrGenderLabelSetUp(){
+        view.addSubview(chrGender)
+        chrGender.text = detailedChrGender
+        chrGender.textAlignment = .left
+        chrGender.adjustsFontSizeToFitWidth = true
+    }
+    func chrOriginLabelSetUp(){
+        view.addSubview(chrOrigin)
+        chrOrigin.text = detailedChrOrigin?.name
+        chrOrigin.textAlignment = .left
+        chrOrigin.adjustsFontSizeToFitWidth = true
+    }
+    func chrLocationLabelSetUp(){
+        view.addSubview(chrLocation)
+        chrLocation.text = detailedChrLocation?.name
+        chrLocation.textAlignment = .left
+        chrLocation.adjustsFontSizeToFitWidth = true
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        // Layout custom navigation bar
         let customNavBarSize = CGSize(width: view.bounds.width, height: 88)
         customNavBar.frame = CGRect(origin: CGPoint(x: 0, y: view.safeAreaInsets.top), size: customNavBarSize)
     }

@@ -27,7 +27,6 @@ class LocationCoordinator: ReactiveCoordinator<Void>{
         
         vm.goToDetailLocation.subscribe(onNext: { location in
             self.goToDetailLocation(location: location)
-            
         }).disposed(by: disposeBag)
         
         navigationController.setViewControllers([vc], animated: true)

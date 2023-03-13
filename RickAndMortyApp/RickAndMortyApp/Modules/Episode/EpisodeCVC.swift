@@ -41,7 +41,7 @@ final class EpisodeCVC: UICollectionViewCell {
     
     override init(frame: CGRect){
         super.init(frame: frame)
-        contentView.backgroundColor = .darkSlateGray
+        contentView.backgroundColor = .pewterLight
         contentView.addSubviews(nameLabel, airDateLabel ,episodeLabel)
         addConstraintEpisode()
     }
@@ -61,10 +61,9 @@ final class EpisodeCVC: UICollectionViewCell {
             nameLabel.bottomAnchor.constraint(equalTo: airDateLabel.topAnchor, constant: -3),
             episodeLabel.bottomAnchor.constraint(equalTo: nameLabel.topAnchor, constant: -3)
         ])
-        
-        nameLabel.backgroundColor = .charcoal
-        airDateLabel.backgroundColor = .charcoal
-        episodeLabel.backgroundColor = .charcoal
+        nameLabel.backgroundColor = .pewter
+        airDateLabel.backgroundColor = .pewter
+        episodeLabel.backgroundColor = .pewter
     }
     
     override func prepareForReuse() {
@@ -75,9 +74,8 @@ final class EpisodeCVC: UICollectionViewCell {
     }
     
     public func configure(with viewModel: EpisodeCVCVM){
-        nameLabel.text =    viewModel.episodeName
+        nameLabel.text = viewModel.episodeName
         airDateLabel.text = viewModel.episodeAirDateLabel
         episodeLabel.text = viewModel.episodeLabel
     }
-    
 }

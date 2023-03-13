@@ -20,7 +20,6 @@ class EpisodeVM : BaseVM {
     func fetchEpisode(){
         NetworkManager.shared.fetchRickAndMortieEpisode().subscribe(onNext: { response in
             self.episodeList.onNext(response.results)
-            print(response.results)
         }, onError: { error in
             print(error.localizedDescription)
         }

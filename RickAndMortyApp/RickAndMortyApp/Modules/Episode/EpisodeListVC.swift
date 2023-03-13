@@ -37,16 +37,14 @@ class EpisodeListVC: BaseVC<EpisodeVM> {
         self.episodeListView.collectionView.rx.setDelegate(self).disposed(by: disposeBag)
         viewModel!.episodeList.bind(to: episodeListView.collectionView.rx.items(cellIdentifier: EpisodeCVC.cellIdentifier, cellType: EpisodeCVC.self)) { (row, eps, cell) in
             var viewModel = EpisodeCVCVM(episodeName: eps.name ?? "", episodeAirDateLabel: eps.air_date ?? "", episodeLabel: eps.episode ?? "")
-            print("Episode isimleri:\(String(describing: eps.name))")
             cell.configure(with: viewModel)
         }
         .disposed(by: disposeBag)
         
-        //MARK: episode did select
+        //MARK: DidSelect on Episode
         Observable
             .zip(episodeListView.collectionView.rx.itemSelected, episodeListView.collectionView.rx.modelSelected(RMEpisode.self))
             .bind { indexPath, model in
-                print("Episode is: \(model.episode)")
                 self.viewModel?.goToDetail.onNext([model])
             } .disposed(by: disposeBag)
         

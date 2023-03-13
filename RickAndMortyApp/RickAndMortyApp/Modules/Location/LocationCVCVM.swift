@@ -7,8 +7,6 @@
 
 import Foundation
 
-// Location CollectionView ViewModel
-
 final class LocationCVCVM {
     
     public let locationName : String

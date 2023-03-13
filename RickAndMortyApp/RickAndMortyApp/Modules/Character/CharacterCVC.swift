@@ -31,7 +31,7 @@ final class CharacterCVC: UICollectionViewCell {
     
     public var statusLabel : UILabel = {
         let label = UILabel()
-        label.textColor = .secondaryLabel
+        label.textColor = .label
         label.font = .systemFont(ofSize: 16, weight: .medium)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -40,7 +40,7 @@ final class CharacterCVC: UICollectionViewCell {
     
     override init(frame: CGRect){
         super.init(frame: frame)
-        contentView.backgroundColor = .darkSlateGray
+        contentView.backgroundColor = .pewter
         contentView.addSubviews(imageView, nameLabel, statusLabel)
         addConstraint()
     }
@@ -70,9 +70,9 @@ final class CharacterCVC: UICollectionViewCell {
             
         ])
         
-        imageView.backgroundColor = .charcoal
-        nameLabel.backgroundColor = .charcoal
-        statusLabel.backgroundColor = .charcoal
+        imageView.backgroundColor = .pewter
+        nameLabel.backgroundColor = .pewter
+        statusLabel.backgroundColor = .pewter
     }
     
     override func prepareForReuse() {
