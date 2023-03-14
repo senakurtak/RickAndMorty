@@ -55,6 +55,8 @@
 		B3938B8C29BA07CC0070DBFD /* EpisodeDetailListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3938B8B29BA07CC0070DBFD /* EpisodeDetailListVC.swift */; };
 		B394772529AF8B4400EB0048 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B394772429AF8B4400EB0048 /* MenuController.swift */; };
 		B39B6A1F29BF5F3C00636605 /* RatingWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39B6A1E29BF5F3C00636605 /* RatingWebViewController.swift */; };
+		B39B6A2329C0665900636605 /* ProductionMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39B6A2129C0665900636605 /* ProductionMapVC.swift */; };
+		B39B6A2429C0665900636605 /* ProductionMapVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B39B6A2229C0665900636605 /* ProductionMapVC.xib */; };
 		B39FFC5229B54F6A00398AF2 /* EpisodeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FFC5129B54F6A00398AF2 /* EpisodeVM.swift */; };
 		B39FFC5429B5524500398AF2 /* CharacterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FFC5329B5524500398AF2 /* CharacterVM.swift */; };
 		B39FFC5629B552A600398AF2 /* LocationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FFC5529B552A600398AF2 /* LocationVM.swift */; };
@@ -144,6 +146,8 @@
 		B3938B8B29BA07CC0070DBFD /* EpisodeDetailListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailListVC.swift; sourceTree = "<group>"; };
 		B394772429AF8B4400EB0048 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		B39B6A1E29BF5F3C00636605 /* RatingWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingWebViewController.swift; sourceTree = "<group>"; };
+		B39B6A2129C0665900636605 /* ProductionMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionMapVC.swift; sourceTree = "<group>"; };
+		B39B6A2229C0665900636605 /* ProductionMapVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductionMapVC.xib; sourceTree = "<group>"; };
 		B39FFC5129B54F6A00398AF2 /* EpisodeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeVM.swift; sourceTree = "<group>"; };
 		B39FFC5329B5524500398AF2 /* CharacterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterVM.swift; sourceTree = "<group>"; };
 		B39FFC5529B552A600398AF2 /* LocationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationVM.swift; sourceTree = "<group>"; };
@@ -340,6 +344,7 @@
 				B3938B8429BA06020070DBFD /* EpisodeDetail */,
 				B342D2AB29B561BC004AC8C1 /* Menu */,
 				B39B6A1D29BF5F1800636605 /* Ratings */,
+				B39B6A2029C0660800636605 /* Store */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -430,6 +435,15 @@
 				B39B6A1E29BF5F3C00636605 /* RatingWebViewController.swift */,
 			);
 			path = Ratings;
+			sourceTree = "<group>";
+		};
+		B39B6A2029C0660800636605 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				B39B6A2129C0665900636605 /* ProductionMapVC.swift */,
+				B39B6A2229C0665900636605 /* ProductionMapVC.xib */,
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 		B3CE336C29BB7BE0007C6837 /* NavigationController */ = {
@@ -580,6 +594,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B39B6A2429C0665900636605 /* ProductionMapVC.xib in Resources */,
 				B35334F429AF754B00BE1D4E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -635,6 +650,7 @@
 				B379CC3029B6344400DECAF5 /* CharacterCVC.swift in Sources */,
 				B353352929AF758500BE1D4E /* RMLocation.swift in Sources */,
 				B379CC4229B9C21500DECAF5 /* LocationCVCVM.swift in Sources */,
+				B39B6A2329C0665900636605 /* ProductionMapVC.swift in Sources */,
 				B342D2B329B5620F004AC8C1 /* SplashVC.swift in Sources */,
 				B379CC4A29B9DBE500DECAF5 /* EpisodeCVCVM.swift in Sources */,
 				B379CC3829B80A6900DECAF5 /* DeviceSize.swift in Sources */,

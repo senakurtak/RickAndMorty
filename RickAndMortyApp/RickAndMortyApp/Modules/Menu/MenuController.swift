@@ -38,7 +38,7 @@ class MenuController: UITableViewController {
         cell.textLabel?.text = menuItems[indexPath.row]
         cell.textLabel?.textColor = .white
         cell.backgroundColor = .orgDarkGray
-        cell.contentView.backgroundColor = .pewter
+        cell.contentView.backgroundColor = .orgDarkGray
         return cell
     }
         
@@ -46,13 +46,13 @@ class MenuController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         let selectedItem = menuItems[indexPath.item]
         switch selectedItem {
-        case "Production":
-            print("production clicked")
+        case "Rick&Morty Store":
+            let productionVC = ProductionMapVC(nibName: "ProductionMapVC", bundle: nil)
+            navigationController?.pushViewController(productionVC, animated: true)
             break
         case "Ratings":
             let ratingVC = RatingWebViewController()
             navigationController?.present(ratingVC, animated: true)
-//            navigationController?.pushViewController(ratingVC, animated: true)
             break
         case "Analysis":
             break
