@@ -1,4 +1,4 @@
-Rick and Morty App
+# Rick and Morty App 
 
 This repository shows all Rick and Morty characters and illustrates how i apply MVVM-C design pattern with 3rd party libraries from below api;
 
@@ -6,16 +6,17 @@ This repository shows all Rick and Morty characters and illustrates how i apply 
 GET https://rickandmortyapi.com/api
 ```
 
-
-## Features of the application
+## Features of the application ##
 - Fetching and listing datas using GET request 
 - Searching datas 
 - Refreshing datas
   
-## Used technologies
+## Used technologies ##
 - MVVM-C Design Pattern
 - Moya
 - SideMenu
 - XIB
 - Extensions
 - RxSwift
+- RxCocoa
+- WebKit
