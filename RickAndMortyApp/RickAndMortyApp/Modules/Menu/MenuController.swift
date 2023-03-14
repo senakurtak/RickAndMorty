@@ -41,21 +41,24 @@ class MenuController: UITableViewController {
         cell.contentView.backgroundColor = .pewter
         return cell
     }
-    
+        
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let selectedItem = menuItems[indexPath.item]
         switch selectedItem {
         case "Production":
+            print("production clicked")
+            break
         case "Ratings":
-            var ratingVC = RatingWebViewController()
-            navigationController?.pushViewController(ratingVC, animated: true)
+            let ratingVC = RatingWebViewController()
+            navigationController?.present(ratingVC, animated: true)
+//            navigationController?.pushViewController(ratingVC, animated: true)
             break
         case "Analysis":
             break
         default:
             break
         }
-        dismiss(animated: true, completion: nil)
     }
+
 }
