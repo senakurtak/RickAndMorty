@@ -15,7 +15,7 @@ extension UIColor {
     }
  
     @nonobjc class var pewter: UIColor {
-        return UIColor(red: 137/255.0, green: 148/255.0, blue: 153/255.0, alpha: 1.0)
+        return UIColor(red: 190/255.0, green: 192/255.0, blue: 193/255.0, alpha: 1.0)
     }
     
     @nonobjc class var pewterLight: UIColor {

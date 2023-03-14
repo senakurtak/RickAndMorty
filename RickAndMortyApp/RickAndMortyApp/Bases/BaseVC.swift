@@ -15,7 +15,7 @@ class BaseVC<T>: UIViewController where T : BaseVM {
     let disposeBag = DisposeBag()
     let screen = UIScreen.main.bounds
     
-    private let sideMenu = SideMenuNavigationController(rootViewController: MenuController(with: ["Rick&Morty Store","Ratings","Analysis"]))
+    private let sideMenu = SideMenuNavigationController(rootViewController: MenuController(with: ["Rick&Morty Store","Ratings"]))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ class BaseVC<T>: UIViewController where T : BaseVM {
     }
     
     @objc func buttonClickedForMenuView(){
-        let vc = MenuController(with: ["Rick&Morty Store","Ratings","Analysis"])
+        let vc = MenuController(with: ["Rick&Morty Store","Ratings"])
         present(sideMenu, animated: true)
     }
 }

@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        UITabBar.appearance().barTintColor = UIColor.pewterLight // your color
+        UITabBar.appearance().barTintColor = UIColor.pewter // your color
         UITabBar.appearance().backgroundColor = UIColor.black // your color
         appCoordinator = AppCoordinator(window: self.window!)
         appCoordinator.start().subscribe().disposed(by: disposeBag)

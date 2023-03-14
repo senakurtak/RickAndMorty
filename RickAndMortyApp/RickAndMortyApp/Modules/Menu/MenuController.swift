@@ -54,8 +54,6 @@ class MenuController: UITableViewController {
             let ratingVC = RatingWebViewController()
             navigationController?.present(ratingVC, animated: true)
             break
-        case "Analysis":
-            break
         default:
             break
         }
