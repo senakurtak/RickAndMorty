@@ -19,3 +19,5 @@ GET https://rickandmortyapi.com/api
 - XIB
 - Extensions
 - RxSwift
+- RxCocoa
+- WebKit
