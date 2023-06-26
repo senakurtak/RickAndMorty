@@ -5,16 +5,15 @@
 //  Created by Sena Kurtak on 12.03.2023.
 //
 
-
 import Foundation
 import Moya
 import RxSwift
 import UIKit
 
-class CharacterDetailVM : BaseVM {
+class CharacterDetailVM: BaseVM {
     // MARK: Image Manager
-    func fetchImage(characterImageUrl: URL!,completion: @escaping (Result<Data,Error>) -> Void){
-        guard let url = characterImageUrl else {
+    func fetchImage(chrImgURL: URL!, completion: @escaping (Result<Data, Error>) -> Void) {
+        guard let url = chrImgURL else {
             completion(.failure(URLError(.badURL)))
             return
         }

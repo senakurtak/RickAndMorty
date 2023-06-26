@@ -10,6 +10,6 @@ import Moya
 import RxSwift
 import UIKit
 
-class LocationDetailVM : BaseVM {
-    
+class LocationDetailVM: BaseVM {
+
 }

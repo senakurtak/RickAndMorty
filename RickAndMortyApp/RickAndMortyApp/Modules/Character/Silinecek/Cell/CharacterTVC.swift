@@ -10,11 +10,11 @@ import UIKit
 class CharacterTVC: UITableViewCell {
 
     @IBOutlet weak var characterImage: UIImageView!
-    
+
     @IBOutlet weak var characterName: UILabel!
-    
+
     @IBOutlet weak var characterStatus: UILabel!
-    
+
     @IBOutlet weak var characterGender: UILabel!
 
     override func awakeFromNib() {
@@ -27,5 +27,5 @@ class CharacterTVC: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }

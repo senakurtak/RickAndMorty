@@ -5,12 +5,12 @@
 //  Created by Sena Kurtak on 9.03.2023.
 //
 
-//import UIKit
-//import RxSwift
-//import RxCocoa
-//import Foundation
+// import UIKit
+// import RxSwift
+// import RxCocoa
+// import Foundation
 //
-//class EpisodeDetailListView: UIView {
+// class EpisodeDetailListView: UIView {
 //    
 //    private let viewModel = EpisodeDetailVM()
 //    
@@ -22,4 +22,4 @@
 //    required init?(coder: NSCoder) {
 //        fatalError("init(coder:) has not been implemented")
 //    }
-//}
+// }

@@ -8,6 +8,6 @@
 import Foundation
 
 class RMCharacterResponse: Codable {
-    let info : Info
-    let results : [RMCharacter]
+    let info: Info
+    let results: [RMCharacter]
 }

@@ -13,7 +13,7 @@ import UIKit
 var screenWidth = CGFloat()
 var screenHeight = CGFloat()
 
-func getDeviceSize(){
+func getDeviceSize() {
     screenWidth = UIScreen.main.bounds.width
     screenHeight = UIScreen.main.bounds.height
 }

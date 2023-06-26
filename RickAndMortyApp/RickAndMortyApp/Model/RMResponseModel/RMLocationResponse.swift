@@ -8,6 +8,6 @@
 import Foundation
 
 class RMLocationResponse: Codable {
-    let info : Info
-    let results : [RMLocation]
+    let info: Info
+    let results: [RMLocation]
 }

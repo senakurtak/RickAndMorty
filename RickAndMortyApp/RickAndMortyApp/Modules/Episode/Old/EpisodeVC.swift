@@ -5,9 +5,9 @@
 ////  Created by Sena Kurtak on 1.03.2023.
 ////
 //
-//import UIKit
+// import UIKit
 //
-//class EpisodeVC: BaseVC<EpisodeVM> {
+// class EpisodeVC: BaseVC<EpisodeVM> {
 //
 //    @IBOutlet weak var tableView: UITableView!
 //    
@@ -18,4 +18,4 @@
 //        viewModel?.fetchEpisode()
 //        title = "Episode"
 //    }
-//}
+// }

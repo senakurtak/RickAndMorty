@@ -5,12 +5,12 @@
 //  Created by Sena Kurtak on 12.03.2023.
 //
 
-//import Foundation
-//import RxSwift
-//import RxCocoa
-//import UIKit
+// import Foundation
+// import RxSwift
+// import RxCocoa
+// import UIKit
 //
-//class LocationDetailListView : UIView {
+// class LocationDetailListView : UIView {
 //    
 //    private let viewModel = LocationDetailVM()
 //    
@@ -23,4 +23,4 @@
 //        fatalError("init(coder:) has not been implemented")
 //    }
 //
-//}
+// }

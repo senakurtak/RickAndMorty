@@ -5,9 +5,9 @@
 ////  Created by Sena Kurtak on 6.03.2023.
 ////
 //
-//import UIKit
+// import UIKit
 //
-//class EpisodeTVC: UITableViewCell {
+// class EpisodeTVC: UITableViewCell {
 //
 //    @IBOutlet weak var episodeName: UILabel!
 //    
@@ -24,4 +24,4 @@
 //        // Configure the view for the selected state
 //    }
 //    
-//}
+// }

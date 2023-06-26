@@ -9,15 +9,15 @@ import Moya
 import RxSwift
 import UIKit
 
-class EpisodeVM : BaseVM {
-    
+class EpisodeVM: BaseVM {
+
     var episodeList = PublishSubject<[RMEpisode]>()
-    
-    var bag : DisposeBag = DisposeBag()
-    
+
+    var bag: DisposeBag = DisposeBag()
+
     var goToDetail = PublishSubject<[RMEpisode]>()
-        
-    func fetchEpisode(){
+
+    func fetchEpisode() {
         NetworkManager.shared.fetchRickAndMortieEpisode().subscribe(onNext: { response in
             self.episodeList.onNext(response.results)
         }, onError: { error in

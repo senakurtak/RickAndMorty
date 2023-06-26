@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct RMLocation : Codable {
-    
+struct RMLocation: Codable {
+
       let id: Int?
       let name: String?
       let type: String?
@@ -16,5 +16,5 @@ struct RMLocation : Codable {
       let residents: [String?]
       let url: String?
       let created: String?
-    
+
 }

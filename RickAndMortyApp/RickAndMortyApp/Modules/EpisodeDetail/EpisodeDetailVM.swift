@@ -9,6 +9,6 @@ import Moya
 import RxSwift
 import UIKit
 
-class EpisodeDetailVM : BaseVM {
+class EpisodeDetailVM: BaseVM {
 
 }

@@ -10,23 +10,23 @@ import RxSwift
 import RxCocoa
 import UIKit
 
-class LocationDetailCoordinator : ReactiveCoordinator<Void> {
-    
+class LocationDetailCoordinator: ReactiveCoordinator<Void> {
+
     private let rootViewController: UIViewController
-    
-    var locations : [RMLocation]
-    
-    init(rootViewController: UIViewController, locations: [RMLocation]){
+
+    var locations: [RMLocation]
+
+    init(rootViewController: UIViewController, locations: [RMLocation]) {
         self.rootViewController = rootViewController
         self.locations = locations
     }
-    
+
     override func start() -> Observable<Void> {
-        let vc = LocationDetailVC()
-        let vm = LocationDetailVM()
-        vc.viewModel = vm
-        vc.locations = self.locations
-        self.rootViewController.navigationController?.pushViewController(vc, animated: true)
+        let locationDetailVC = LocationDetailVC()
+        let locationDetailVM = LocationDetailVM()
+        locationDetailVC.viewModel = locationDetailVM
+        locationDetailVC.locations = self.locations
+        self.rootViewController.navigationController?.pushViewController(locationDetailVC, animated: true)
         return Observable.never()
     }
 }

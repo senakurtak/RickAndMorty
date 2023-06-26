@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 
 class TabBar: UITabBarController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.async {
@@ -18,4 +18,3 @@ class TabBar: UITabBarController {
         self.tabBar.tintColor = UIColor.black
     }
 }
-

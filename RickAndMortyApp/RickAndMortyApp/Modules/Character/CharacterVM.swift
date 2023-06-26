@@ -8,18 +8,18 @@ import Moya
 import RxSwift
 import UIKit
 
-final class CharacterVM : BaseVM {
-    
+final class CharacterVM: BaseVM {
+
     var characterList = PublishSubject<[RMCharacter]>()
-    
-    var bag : DisposeBag = DisposeBag()
-    
+
+    var bag: DisposeBag = DisposeBag()
+
     var goToDetailCharacter = PublishSubject<[RMCharacter]>()
 
-    func fetchCharacter(){
+    func fetchCharacter() {
         NetworkManager.shared.fetchRickAndMortieCharacter().subscribe(onNext: { response in
-            self.characterList.onNext(response.results)
-//            print(response.results)
+            self.characterList
+                .onNext(response.results)
         }, onError: { error in
             print(error.localizedDescription)
         }
@@ -27,4 +27,3 @@ final class CharacterVM : BaseVM {
     }
 
 }
-

@@ -9,8 +9,8 @@ import UIKit
 import RxSwift
 
 class SplashVC: BaseVC<SplashVM> {
-    
-    private var imgView : UIImageView = {
+
+    private var imgView: UIImageView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFill
         img.image = UIImage(named: "splash")
@@ -19,7 +19,8 @@ class SplashVC: BaseVC<SplashVM> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.viewModel?.goMain.onNext(())
+        self.viewModel?.goMain
+            .onNext(())
     }
 
     override func setUpConstraints() {

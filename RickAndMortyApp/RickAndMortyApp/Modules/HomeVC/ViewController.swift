@@ -5,10 +5,10 @@
 //  Created by Sena Kurtak on 27.02.2023.
 //
 
-//import UIKit
-//import SideMenu
+// import UIKit
+// import SideMenu
 //
-//class ViewController: UIViewController {
+// class ViewController: UIViewController {
 //
 //    private let sideMenu = SideMenuNavigationController(rootViewController: MenuController(with: ["Character",
 //                                                                                                  "Episode",
@@ -24,5 +24,5 @@
 //        SideMenuManager.default.addPanGestureToPresent(toView: view)
 //        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "rnm")!)
 //    }
-//}
+// }
 //

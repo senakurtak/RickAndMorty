@@ -8,6 +8,6 @@
 import Foundation
 
 class RMEpisodeResponse: Codable {
-    let info : Info
-    let results : [RMEpisode]
+    let info: Info
+    let results: [RMEpisode]
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 struct RMCharacter: Codable {
-    
+
     let id: Int?
     let name: String?
     let status: RMCharacterStatus
@@ -21,6 +21,5 @@ struct RMCharacter: Codable {
     let episode: [String]
     let url: String?
     let created: String?
-    
-    
+
 }

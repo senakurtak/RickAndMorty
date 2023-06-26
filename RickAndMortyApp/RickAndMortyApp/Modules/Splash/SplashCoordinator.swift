@@ -9,7 +9,6 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-
 class SplashCoordinator: ReactiveCoordinator<Void> {
 
     private let rootViewController: UIViewController
@@ -19,15 +18,15 @@ class SplashCoordinator: ReactiveCoordinator<Void> {
     }
 
     override func start() -> Observable<Void> {
-        let vc = SplashVC()
-        let vm = SplashVM()
-        vc.viewModel = vm
+        let splashVC = SplashVC()
+        let splashVM = SplashVM()
+        splashVC.viewModel = splashVM
 
-        vm.goMain.map { _ in
+        splashVM.goMain.map { _ in
             self.goToMain()
         }.subscribe().disposed(by: disposeBag)
 
-        self.rootViewController.navigationController?.pushViewController(vc, animated: true)
+        self.rootViewController.navigationController?.pushViewController(splashVC, animated: true)
         return Observable.never()
     }
 

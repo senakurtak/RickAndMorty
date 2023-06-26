@@ -13,5 +13,5 @@ enum RMCharacterGender: String, Codable {
     case female = "female"
     case genderless = "genderless"
     case `unknown` = "unknown"
-    
+
 }

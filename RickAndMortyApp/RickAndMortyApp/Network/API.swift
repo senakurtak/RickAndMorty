@@ -15,12 +15,12 @@ enum API {
 }
 
 extension API: TargetType {
-    
+
     var baseURL: URL {
         guard let url = URL(string: "https://rickandmortyapi.com/api/") else {fatalError()}
         return url
     }
-    
+
     var path: String {
         switch self {
         case .character:
@@ -31,15 +31,15 @@ extension API: TargetType {
             return "episode"
         }
     }
-    
+
     var method: Moya.Method {
         return .get
     }
-    
+
     var sampleData: Data {
         return Data()
     }
-    
+
     var task: Task {
         switch self {
         case .character:
@@ -50,9 +50,9 @@ extension API: TargetType {
             return .requestPlain
         }
     }
-    
-    var headers: [String : String]? {
+
+    var headers: [String: String]? {
         return nil
     }
-    
+
 }

@@ -8,18 +8,18 @@
 import Foundation
 import RxSwift
 
-open class ReactiveCoordinator<ResultType> : NSObject {
+open class ReactiveCoordinator<ResultType>: NSObject {
     public let disposeBag = DisposeBag()
     private let identifier = UUID()
     private var childCoordinators = [UUID: Any]()
-    
-    private func store<T>(coordinator : ReactiveCoordinator<T>){
+
+    private func store<T>(coordinator: ReactiveCoordinator<T>) {
         childCoordinators[coordinator.identifier] = coordinator
     }
-    private func release<T>(coordinator : ReactiveCoordinator<T>){
+    private func release<T>(coordinator: ReactiveCoordinator<T>) {
         childCoordinators[coordinator.identifier] = nil
     }
-    open func coordinate<T>(to coordinator : ReactiveCoordinator<T>) -> Observable<T> {
+    open func coordinate<T>(to coordinator: ReactiveCoordinator<T>) -> Observable<T> {
         store(coordinator: coordinator)
         return coordinator.start()
             .do(onNext: { [weak self] _ in

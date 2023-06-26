@@ -8,14 +8,14 @@
 import Foundation
 
 final class LocationCVCVM {
-    
-    public let locationName : String
-    public let locationType : String
-    
+
+    public let locationName: String
+    public let locationType: String
+
     init(
         locationName: String,
         locationType: String
-    ){
+    ) {
         self.locationName = locationName
         self.locationType = locationType
     }

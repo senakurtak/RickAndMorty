@@ -10,11 +10,11 @@ import RxSwift
 import RxCocoa
 
 class EpisodeListVC: BaseVC<EpisodeVM> {
-    
+
     private let episodeListView = EpisodeListView()
-    
+
     var bag = DisposeBag()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.fetchEpisode()
@@ -28,30 +28,42 @@ class EpisodeListVC: BaseVC<EpisodeVM> {
             episodeListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-    
-    func collectionDataBinding(){
+
+    func collectionDataBinding() {
         episodeListView.collectionView.register(EpisodeCVC.self,
                                                 forCellWithReuseIdentifier: EpisodeCVC.cellIdentifier)
-        
-        
-        self.episodeListView.collectionView.rx.setDelegate(self).disposed(by: disposeBag)
-        viewModel!.episodeList.bind(to: episodeListView.collectionView.rx.items(cellIdentifier: EpisodeCVC.cellIdentifier, cellType: EpisodeCVC.self)) { (row, eps, cell) in
-            var viewModel = EpisodeCVCVM(episodeName: eps.name ?? "", episodeAirDateLabel: eps.air_date ?? "", episodeLabel: eps.episode ?? "")
+
+        self.episodeListView.collectionView
+            .rx
+            .setDelegate(self).disposed(by: disposeBag)
+        viewModel!.episodeList
+            .bind(to: episodeListView.collectionView
+            .rx
+            .items(cellIdentifier: EpisodeCVC.cellIdentifier,
+                   cellType: EpisodeCVC.self)) { (_, eps, cell) in
+            let viewModel = EpisodeCVCVM(episodeName: eps.name ?? "",
+                                         episodeAirDateLabel: eps.airDate ?? "",
+                                         episodeLabel: eps.episode ?? "")
             cell.configure(with: viewModel)
         }
         .disposed(by: disposeBag)
-        
-        //MARK: DidSelect on Episode
+
+        // MARK: DidSelect on Episode
         Observable
-            .zip(episodeListView.collectionView.rx.itemSelected, episodeListView.collectionView.rx.modelSelected(RMEpisode.self))
-            .bind { indexPath, model in
-                self.viewModel?.goToDetail.onNext([model])
+            .zip(episodeListView.collectionView
+                .rx
+                .itemSelected,
+                 episodeListView.collectionView
+                .rx
+                .modelSelected(RMEpisode.self))
+            .bind { _, model in
+                self.viewModel?.goToDetail
+                    .onNext([model])
             } .disposed(by: disposeBag)
-        
-        
+
     }
 }
 
-extension EpisodeListVC : UICollectionViewDelegate{
-    
+extension EpisodeListVC: UICollectionViewDelegate {
+
 }

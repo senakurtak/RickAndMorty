@@ -11,19 +11,19 @@ import RxCocoa
 import Foundation
 
 final class EpisodeListView: UIView {
-    
+
     private let viewModel = EpisodeVM()
     let detailViewModel = EpisodeDetailVM()
     var disposeBag = DisposeBag()
-    
-    private let spinner : UIActivityIndicatorView = {
+
+    private let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
         spinner.hidesWhenStopped = true
         spinner.translatesAutoresizingMaskIntoConstraints = false
         return spinner
     }()
-    
-    public let collectionView : UICollectionView = {
+
+    public let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.sectionInset =  UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
@@ -35,7 +35,7 @@ final class EpisodeListView: UIView {
         collectionView.backgroundColor = .pewter
         return collectionView
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
@@ -45,11 +45,11 @@ final class EpisodeListView: UIView {
         viewModel.fetchEpisode()
         setUpCollectionViewConstraint()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-        
+
     private func addConstraints() {
         NSLayoutConstraint.activate([
             spinner.widthAnchor.constraint(equalToConstant: 100),
@@ -59,11 +59,11 @@ final class EpisodeListView: UIView {
             collectionView.topAnchor.constraint(equalTo: topAnchor),
             collectionView.leftAnchor.constraint(equalTo: leftAnchor),
             collectionView.rightAnchor.constraint(equalTo: rightAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
-    
-    private func setUpCollectionViewConstraint(){
+
+    private func setUpCollectionViewConstraint() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
@@ -78,5 +78,5 @@ final class EpisodeListView: UIView {
             }
         })
     }
-    
+
 }

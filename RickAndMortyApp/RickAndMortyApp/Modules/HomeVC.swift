@@ -9,17 +9,16 @@ import UIKit
 import SideMenu
 
 class HomeVC: UIViewController {
-    
+
     private let sideMenu = SideMenuNavigationController(rootViewController: MenuController(with: ["Character",
                                                                                                   "Episode",
                                                                                                   "Location"]))
-    
+
     @IBAction func didTapMenuItem(_ sender: Any) {
         present(sideMenu, animated: true)
-        
-        
+
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         sideMenu.leftSide = true

@@ -9,12 +9,12 @@ import RxSwift
 import UIKit
 
 class AppCoordinator: ReactiveCoordinator<Void> {
-    var window : UIWindow
-    
-    init(window : UIWindow) {
+    var window: UIWindow
+
+    init(window: UIWindow) {
         self.window = window
     }
-    
+
     override func start() -> Observable<Void> {
         let controller = SplashVC()
         let navController = UINavigationController(rootViewController: controller)

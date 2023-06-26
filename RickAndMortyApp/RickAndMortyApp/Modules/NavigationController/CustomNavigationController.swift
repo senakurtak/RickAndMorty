@@ -5,9 +5,9 @@
 ////  Created by Sena Kurtak on 10.03.2023.
 ////
 //
-//import UIKit
+// import UIKit
 //
-//class CustomNavigationController: UINavigationController {
+// class CustomNavigationController: UINavigationController {
 //    
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
@@ -28,4 +28,4 @@
 //        // Call the superclass method to push the new view controller onto the stack
 //        super.pushViewController(viewController, animated: animated)
 //    }
-//}
+// }
