@@ -16,8 +16,10 @@ final class CharacterVM: BaseVM {
 
     var goToDetailCharacter = PublishSubject<[RMCharacter]>()
 
+    let repository = CharacterRepository()
+
     func fetchCharacter() {
-        NetworkManager.shared.fetchRickAndMortieCharacter().subscribe(onNext: { response in
+        repository.fetchCharacter().subscribe(onNext: { response in
             self.characterList
                 .onNext(response.results)
         }, onError: { error in
@@ -25,5 +27,4 @@ final class CharacterVM: BaseVM {
         }
         ).disposed(by: bag)
     }
-
 }
