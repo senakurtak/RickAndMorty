@@ -17,8 +17,11 @@ class EpisodeVM: BaseVM {
 
     var goToDetail = PublishSubject<[RMEpisode]>()
 
+    let repository = EpisodeRepository()
+
     func fetchEpisode() {
-        NetworkManager.shared.fetchRickAndMortieEpisode().subscribe(onNext: { response in
+        repository.fetchRickAndMortieEpisode()
+            .subscribe(onNext: { response in
             self.episodeList.onNext(response.results)
         }, onError: { error in
             print(error.localizedDescription)

@@ -17,8 +17,10 @@ class LocationVM: BaseVM {
 
     var goToDetailLocation = PublishSubject<[RMLocation]>()
 
+    let repository = LocationRepository()
+
     func fetchLocation() {
-        NetworkManager.shared.fetchRickAndMortieLocation().subscribe(onNext: { response in
+        repository.fetchLocation().subscribe(onNext: { response in
             self.locationList
                 .onNext(response.results)
         }, onError: { error in

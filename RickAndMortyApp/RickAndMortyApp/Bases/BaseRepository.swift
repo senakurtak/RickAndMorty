@@ -14,5 +14,5 @@ class BaseRepository {
     init() {
         self.networkManager = NetworkManager.shared
     }
-    
+
 }
